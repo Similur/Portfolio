@@ -39,23 +39,46 @@
         <div class="eyebrow"><span class="pulse-dot"></span> DATA ENGINEERING · CLOUD PLATFORMS · APPLIED AI</div>
         <h1>Making data <span class="gradient-text">easier to use.</span></h1>
         <p class="hero-intro">I'm <strong>Dylan Ferreira</strong>, a data engineer with a background in database administration. I build reliable pipelines and work through tricky integrations so teams can use their data in their day-to-day work.</p>
-        <div class="hero-actions"><a class="button primary" href="#projects">View my projects <span aria-hidden="true">↗</span></a><a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View my projects <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <!-- 1. Hero Impact Metrics Strip -->
+        <div class="hero-stats">
+          <div class="stat-item"><strong>4+ Yrs</strong><span>Data & DBA</span></div>
+          <div class="stat-item"><strong>30+</strong><span>Workbooks Automated</span></div>
+          <div class="stat-item"><strong>Fabric</strong><span>Lakehouse Specialist</span></div>
+          <div class="stat-item"><strong>100%</strong><span>Idempotent Ingestion</span></div>
+        </div>
+
         <div class="hero-tags"><span>Python & PySpark</span><span>SQL Server</span><span>Microsoft Fabric</span><span>Azure</span></div>
       </div>
       <div class="hero-visual" aria-label="Illustration of a data pipeline">
         <div class="visual-glow"></div>
         <div class="diagram">
-          <div class="diagram-top"><span class="window-dots"><i></i><i></i><i></i></span><span>pipeline / overview</span><span class="diagram-status">● healthy</span></div>
+          <div class="diagram-top">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <span>pipeline / live-monitor</span>
+            <button class="run-sim-btn" id="run-sim-btn">▶ Run Pipeline</button>
+          </div>
           <div class="diagram-content">
             <div class="diagram-caption">FROM SOURCE DATA TO ANALYTICS</div>
             <div class="nodes">
-              <div class="node"><span class="node-icon">⌁</span><strong>Ingest</strong><small>Sources</small></div>
+              <div class="node" id="sim-node-ingest"><span class="node-icon">⌁</span><strong>Ingest</strong><small>Sources</small></div>
               <div class="connector"><span></span></div>
-              <div class="node active"><span class="node-icon">{ }</span><strong>Transform</strong><small>PySpark / SQL</small></div>
+              <div class="node active" id="sim-node-transform"><span class="node-icon">{ }</span><strong>Transform</strong><small>PySpark / SQL</small></div>
               <div class="connector"><span></span></div>
-              <div class="node"><span class="node-icon">▤</span><strong>Serve</strong><small>Analytics</small></div>
+              <div class="node" id="sim-node-serve"><span class="node-icon">▤</span><strong>Serve</strong><small>Analytics</small></div>
             </div>
-            <div class="code-panel"><div><span class="code-muted"># dependable data, by design</span></div><div><span class="code-blue">validate</span>(source, target)</div><div><span class="code-blue">deduplicate</span>(incoming_data)</div><div><span class="code-blue">publish</span>(trusted_tables)</div><div class="code-success">✓ pipeline completed</div></div>
+            <!-- Live interactive simulator code panel -->
+            <div class="code-panel" id="sim-terminal">
+              <div><span class="code-muted"># dependable data, by design</span></div>
+              <div><span class="code-blue">validate</span>(source, target)</div>
+              <div><span class="code-blue">deduplicate</span>(incoming_data)</div>
+              <div><span class="code-blue">publish</span>(trusted_tables)</div>
+              <div class="code-success" id="sim-status">● pipeline standby</div>
+            </div>
           </div>
         </div>
         <div class="floating-note">DATA PIPELINE <span>✦</span></div>
@@ -63,19 +86,56 @@
     </section>
 
     <section id="projects" class="section container">
-      <div class="section-top"><div><div class="section-kicker">01 / FEATURED WORK</div><h2>Some of <em>my work.</em></h2></div><p>These projects draw on my work in production. I've kept the descriptions general to protect proprietary systems and data.</p></div>
+      <div class="section-top">
+        <div><div class="section-kicker">01 / FEATURED WORK</div><h2>Some of <em>my work.</em></h2></div>
+        <p>These projects draw on my work in production. I've kept the descriptions general to protect proprietary systems and data.</p>
+      </div>
+
+      <!-- 2. Project Filter Pills -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects (6)</button>
+        <button class="filter-btn" data-filter="fabric">Fabric & PySpark</button>
+        <button class="filter-btn" data-filter="integration">Integrations & APIs</button>
+        <button class="filter-btn" data-filter="ai">Applied AI & NLP</button>
+        <button class="filter-btn" data-filter="quality">Data Quality</button>
+      </div>
+
       <div class="project-grid">
-        <article class="project-card project-featured"><div class="card-art art-canvas"><div class="art-header"><span>01 / DATA INTEGRATION</span><span>↗</span></div><div class="art-center"><span class="art-square">C</span><span class="art-line"></span><span class="art-square two">F</span><span class="art-line"></span><span class="art-square three">DB</span></div><div class="art-footer">EXTRACT → SYNC → VALIDATE</div></div><div class="project-body"><div class="card-meta">DATA ENGINEERING <span>·</span> INTEGRATIONS</div><h3>Canvas Data 2 Integration</h3><p>I took over the move to Canvas Data 2 and wrote Python workflows in Microsoft Fabric to sync learning platform data each day.</p><div class="chip-row"><span>Python</span><span>Microsoft Fabric</span><span>SQL</span><span>ETL/ELT</span></div><button type="button" class="text-link" data-project="canvas">Read the case study <span>↗</span></button></div></article>
+        <!-- Project 01 -->
+        <article class="project-card project-featured" data-category="integration fabric">
+          <div class="card-art art-canvas"><div class="art-header"><span>01 / DATA INTEGRATION</span><span>↗</span></div><div class="art-center"><span class="art-square">C</span><span class="art-line"></span><span class="art-square two">F</span><span class="art-line"></span><span class="art-square three">DB</span></div><div class="art-footer">EXTRACT → SYNC → VALIDATE</div></div>
+          <div class="project-body"><div class="card-meta">DATA ENGINEERING <span>·</span> INTEGRATIONS</div><h3>Canvas Data 2 Integration</h3><p>I took over the move to Canvas Data 2 and wrote Python workflows in Microsoft Fabric to sync learning platform data each day.</p><div class="chip-row"><span>Python</span><span>Microsoft Fabric</span><span>SQL</span><span>ETL/ELT</span></div><button type="button" class="text-link" data-project="canvas">Read the case study <span>↗</span></button></div>
+        </article>
         
-        <article class="project-card"><div class="card-art art-fabric"><div class="art-header"><span>02 / AUTOMATION</span><span>↗</span></div><div class="layer-stack"><span>BRONZE <b>Raw files</b></span><span>SILVER <b>Trusted Delta tables</b></span></div><div class="art-footer">MEDALLION PIPELINE</div></div><div class="project-body"><div class="card-meta">DATA PLATFORMS <span>·</span> AUTOMATION</div><h3>Automated Fabric Lakehouse Pipeline</h3><p>I replaced repetitive daily imports with a PySpark pipeline that handles overlapping files and produces reliable Delta tables.</p><div class="chip-row"><span>PySpark</span><span>Delta Lake</span><span>Azure Data Factory</span></div><button type="button" class="text-link" data-project="fabric">Read the case study <span>↗</span></button></div></article>
+        <!-- Project 02 -->
+        <article class="project-card" data-category="fabric">
+          <div class="card-art art-fabric"><div class="art-header"><span>02 / AUTOMATION</span><span>↗</span></div><div class="layer-stack"><span>BRONZE <b>Raw files</b></span><span>SILVER <b>Trusted Delta tables</b></span></div><div class="art-footer">MEDALLION PIPELINE</div></div>
+          <div class="project-body"><div class="card-meta">DATA PLATFORMS <span>·</span> AUTOMATION</div><h3>Automated Fabric Lakehouse Pipeline</h3><p>I replaced repetitive daily imports with a PySpark pipeline that handles overlapping files and produces reliable Delta tables.</p><div class="chip-row"><span>PySpark</span><span>Delta Lake</span><span>Azure Data Factory</span></div><button type="button" class="text-link" data-project="fabric">Read the case study <span>↗</span></button></div>
+        </article>
         
-        <article class="project-card"><div class="card-art art-ml"><div class="art-header"><span>03 / APPLIED AI</span><span>↗</span></div><div class="chart-graphic"><span style="height:24%"></span><span style="height:48%"></span><span style="height:35%"></span><span style="height:63%"></span><span style="height:54%"></span><span style="height:81%"></span><span style="height:95%"></span></div><div class="art-footer">STUDENT AND REPAYMENT RISK</div></div><div class="project-body"><div class="card-meta">MACHINE LEARNING <span>·</span> ANALYTICS</div><h3>Predictive Risk & Student Success Models</h3><p>I built models to flag students who might need support early and identify financial repayment risk, giving teams signals they could act on.</p><div class="chip-row"><span>Pecan AI</span><span>Feature Engineering</span><span>Predictive Analytics</span></div><button type="button" class="text-link" data-project="ml">Read the case study <span>↗</span></button></div></article>
+        <!-- Project 03 -->
+        <article class="project-card" data-category="ai">
+          <div class="card-art art-ml"><div class="art-header"><span>03 / APPLIED AI</span><span>↗</span></div><div class="chart-graphic"><span style="height:24%"></span><span style="height:48%"></span><span style="height:35%"></span><span style="height:63%"></span><span style="height:54%"></span><span style="height:81%"></span><span style="height:95%"></span></div><div class="art-footer">STUDENT AND REPAYMENT RISK</div></div>
+          <div class="project-body"><div class="card-meta">MACHINE LEARNING <span>·</span> ANALYTICS</div><h3>Predictive Risk & Student Success Models</h3><p>I built models to flag students who might need support early and identify financial repayment risk, giving teams signals they could act on.</p><div class="chip-row"><span>Pecan AI</span><span>Feature Engineering</span><span>Predictive Analytics</span></div><button type="button" class="text-link" data-project="ml">Read the case study <span>↗</span></button></div>
+        </article>
         
-        <article class="project-card"><div class="card-art art-quality"><div class="art-header"><span>04 / DATA CHECKS</span><span>↗</span></div><div class="quality-graphic"><div>✓ <span>Schema checks</span></div><div>✓ <span>Count reconciliation</span></div><div>✓ <span>Duplicate detection</span></div></div><div class="art-footer">CHECKING PIPELINE OUTPUTS</div></div><div class="project-body"><div class="card-meta">DATA QUALITY <span>·</span> VALIDATION</div><h3>Automated Data Quality & Reconciliation</h3><p>This example shows how I checked pipeline outputs against existing imports and reports. It draws on validation techniques I used in previous work.</p><div class="chip-row"><span>Python</span><span>SQL</span><span>Power BI</span><span>Validation</span></div><button type="button" class="text-link" data-project="quality">Read the case study <span>↗</span></button></div></article>
+        <!-- Project 04 -->
+        <article class="project-card" data-category="quality">
+          <div class="card-art art-quality"><div class="art-header"><span>04 / DATA CHECKS</span><span>↗</span></div><div class="quality-graphic"><div>✓ <span>Schema checks</span></div><div>✓ <span>Count reconciliation</span></div><div>✓ <span>Duplicate detection</span></div></div><div class="art-footer">CHECKING PIPELINE OUTPUTS</div></div>
+          <div class="project-body"><div class="card-meta">DATA QUALITY <span>·</span> VALIDATION</div><h3>Automated Data Quality & Reconciliation</h3><p>This example shows how I checked pipeline outputs against existing imports and reports. It draws on validation techniques I used in previous work.</p><div class="chip-row"><span>Python</span><span>SQL</span><span>Power BI</span><span>Validation</span></div><button type="button" class="text-link" data-project="quality">Read the case study <span>↗</span></button></div>
+        </article>
 
-        <article class="project-card"><div class="card-art art-fabric"><div class="art-header"><span>05 / REST API & LAKEHOUSE</span><span>↗</span></div><div class="layer-stack"><span>API <b>CRM Payloads</b></span><span>DELTA <b>Silver Upsert</b></span></div><div class="art-footer">IDEMPOTENT CDC PIPELINE</div></div><div class="project-body"><div class="card-meta">DATA PLATFORMS <span>·</span> INTEGRATION</div><h3>CRM-to-Silver Lakehouse Ingestion</h3><p>I built an automated PySpark pipeline in Microsoft Fabric pulling CRM records into OneLake with resilient Delta merges and deduplication.</p><div class="chip-row"><span>PySpark</span><span>Microsoft Fabric</span><span>Delta Lake</span><span>REST APIs</span></div><button type="button" class="text-link" data-project="crm">Read the case study <span>↗</span></button></div></article>
+        <!-- Project 05 -->
+        <article class="project-card" data-category="fabric integration">
+          <div class="card-art art-fabric"><div class="art-header"><span>05 / REST API & LAKEHOUSE</span><span>↗</span></div><div class="layer-stack"><span>API <b>CRM Payloads</b></span><span>DELTA <b>Silver Upsert</b></span></div><div class="art-footer">IDEMPOTENT CDC PIPELINE</div></div>
+          <div class="project-body"><div class="card-meta">DATA PLATFORMS <span>·</span> INTEGRATION</div><h3>CRM-to-Silver Lakehouse Ingestion</h3><p>I built an automated PySpark pipeline in Microsoft Fabric pulling CRM records into OneLake with resilient Delta merges and deduplication.</p><div class="chip-row"><span>PySpark</span><span>Microsoft Fabric</span><span>Delta Lake</span><span>REST APIs</span></div><button type="button" class="text-link" data-project="crm">Read the case study <span>↗</span></button></div>
+        </article>
 
-        <article class="project-card"><div class="card-art art-canvas"><div class="art-header"><span>06 / APPLIED AI</span><span>↗</span></div><div class="quality-graphic"><div>✦ <span>Document OCR</span></div><div>✦ <span>Sentiment Analysis</span></div><div>✦ <span>Executive Insights</span></div></div><div class="art-footer">NLP DOCUMENT PIPELINE</div></div><div class="project-body"><div class="card-meta">AI & ANALYTICS <span>·</span> AUTOMATION</div><h3>Survey Sentiment & Executive Intelligence</h3><p>I designed an automated extraction workflow with Azure Document Intelligence and Python to parse unstructured feedback and score sentiment for leadership.</p><div class="chip-row"><span>Python</span><span>Azure Doc Intelligence</span><span>NLP</span><span>Executive BI</span></div><button type="button" class="text-link" data-project="docintel">Read the case study <span>↗</span></button></div></article>
+        <!-- Project 06 -->
+        <article class="project-card" data-category="ai integration">
+          <div class="card-art art-canvas"><div class="art-header"><span>06 / APPLIED AI</span><span>↗</span></div><div class="quality-graphic"><div>✦ <span>Document OCR</span></div><div>✦ <span>Sentiment Analysis</span></div><div>✦ <span>Executive Insights</span></div></div><div class="art-footer">NLP DOCUMENT PIPELINE</div></div>
+          <div class="project-body"><div class="card-meta">AI & ANALYTICS <span>·</span> AUTOMATION</div><h3>Survey Sentiment & Executive Intelligence</h3><p>I designed an automated extraction workflow with Azure Document Intelligence and Python to parse unstructured feedback and score sentiment for leadership.</p><div class="chip-row"><span>Python</span><span>Azure Doc Intelligence</span><span>NLP</span><span>Executive BI</span></div><button type="button" class="text-link" data-project="docintel">Read the case study <span>↗</span></button></div>
+        </article>
       </div>
     </section>
 
@@ -122,6 +182,40 @@
     </section>
   </main>
   <footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Dylan Ferreira</span><span>Built with HTML, CSS, and JavaScript.</span><a href="#top">Back to top ↑</a></div></footer>
-  <dialog id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-shell"><button class="dialog-close" id="dialog-close" aria-label="Close case study">✕</button><div class="section-kicker" id="dialog-kicker"></div><h2 id="dialog-title"></h2><p id="dialog-intro"></p><div class="dialog-detail"><h3>The challenge</h3><p id="dialog-challenge"></p><h3>What I did</h3><p id="dialog-contribution"></p><h3>The result</h3><p id="dialog-outcome"></p><p class="disclosure" id="dialog-disclosure"></p></div></div></dialog>
+
+  <!-- 3. Modal Dialog with Tabbed Code & Architecture Switcher -->
+  <dialog id="project-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="dialog-close" aria-label="Close case study">✕</button>
+      <div class="section-kicker" id="dialog-kicker"></div>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-intro"></p>
+
+      <div class="dialog-tabs">
+        <button class="tab-btn active" data-tab="overview">Overview</button>
+        <button class="tab-btn" data-tab="code">Architecture & Code</button>
+      </div>
+
+      <div class="dialog-tab-pane" id="pane-overview">
+        <div class="dialog-detail">
+          <h3>The challenge</h3>
+          <p id="dialog-challenge"></p>
+          <h3>What I did</h3>
+          <p id="dialog-contribution"></p>
+          <h3>The result</h3>
+          <p id="dialog-outcome"></p>
+          <p class="disclosure" id="dialog-disclosure"></p>
+        </div>
+      </div>
+
+      <div class="dialog-tab-pane is-hidden" id="pane-code">
+        <div class="dialog-detail">
+          <h3>Implementation Pattern</h3>
+          <pre class="code-box"><code id="dialog-code"></code></pre>
+          <p class="disclosure">Pattern demonstrates production logic syntax using sanitized synthetic structures.</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>
