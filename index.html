@@ -44,12 +44,24 @@
           <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a>
         </div>
 
-        <!-- 1. Hero Impact Metrics Strip -->
+        <!-- Modern Hero Impact Strip -->
         <div class="hero-stats">
-          <div class="stat-item"><strong>4+ Yrs</strong><span>Data & DBA</span></div>
-          <div class="stat-item"><strong>30+</strong><span>Workbooks Automated</span></div>
-          <div class="stat-item"><strong>Fabric</strong><span>Lakehouse Specialist</span></div>
-          <div class="stat-item"><strong>100%</strong><span>Idempotent Ingestion</span></div>
+          <div class="stat-item">
+            <strong>4+ Yrs</strong>
+            <span>Data & DBA</span>
+          </div>
+          <div class="stat-item">
+            <strong>30+</strong>
+            <span>Workbooks Automated</span>
+          </div>
+          <div class="stat-item">
+            <strong>Fabric</strong>
+            <span>Lakehouse Stack</span>
+          </div>
+          <div class="stat-item">
+            <strong>100%</strong>
+            <span>Idempotent Ingestion</span>
+          </div>
         </div>
 
         <div class="hero-tags"><span>Python & PySpark</span><span>SQL Server</span><span>Microsoft Fabric</span><span>Azure</span></div>
@@ -60,7 +72,7 @@
           <div class="diagram-top">
             <span class="window-dots"><i></i><i></i><i></i></span>
             <span>pipeline / live-monitor</span>
-            <button class="run-sim-btn" id="run-sim-btn">▶ Run Pipeline</button>
+            <button class="run-sim-btn" id="run-sim-btn" type="button">▶ Run Pipeline</button>
           </div>
           <div class="diagram-content">
             <div class="diagram-caption">FROM SOURCE DATA TO ANALYTICS</div>
@@ -71,7 +83,7 @@
               <div class="connector"><span></span></div>
               <div class="node" id="sim-node-serve"><span class="node-icon">▤</span><strong>Serve</strong><small>Analytics</small></div>
             </div>
-            <!-- Live interactive simulator code panel -->
+            <!-- Live interactive simulator terminal -->
             <div class="code-panel" id="sim-terminal">
               <div><span class="code-muted"># dependable data, by design</span></div>
               <div><span class="code-blue">validate</span>(source, target)</div>
@@ -91,13 +103,13 @@
         <p>These projects draw on my work in production. I've kept the descriptions general to protect proprietary systems and data.</p>
       </div>
 
-      <!-- 2. Project Filter Pills -->
+      <!-- Project Category Filter Pills -->
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Projects (6)</button>
-        <button class="filter-btn" data-filter="fabric">Fabric & PySpark</button>
-        <button class="filter-btn" data-filter="integration">Integrations & APIs</button>
-        <button class="filter-btn" data-filter="ai">Applied AI & NLP</button>
-        <button class="filter-btn" data-filter="quality">Data Quality</button>
+        <button type="button" class="filter-btn active" data-filter="all">All Projects (6)</button>
+        <button type="button" class="filter-btn" data-filter="fabric">Fabric & PySpark</button>
+        <button type="button" class="filter-btn" data-filter="integration">Integrations & APIs</button>
+        <button type="button" class="filter-btn" data-filter="ai">Applied AI & NLP</button>
+        <button type="button" class="filter-btn" data-filter="quality">Data Quality</button>
       </div>
 
       <div class="project-grid">
@@ -183,17 +195,17 @@
   </main>
   <footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Dylan Ferreira</span><span>Built with HTML, CSS, and JavaScript.</span><a href="#top">Back to top ↑</a></div></footer>
 
-  <!-- 3. Modal Dialog with Tabbed Code & Architecture Switcher -->
+  <!-- Modal Dialog with Tabbed Code & Architecture Switcher -->
   <dialog id="project-dialog" aria-labelledby="dialog-title">
     <div class="dialog-shell">
-      <button class="dialog-close" id="dialog-close" aria-label="Close case study">✕</button>
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close case study">✕</button>
       <div class="section-kicker" id="dialog-kicker"></div>
       <h2 id="dialog-title"></h2>
       <p id="dialog-intro"></p>
 
       <div class="dialog-tabs">
-        <button class="tab-btn active" data-tab="overview">Overview</button>
-        <button class="tab-btn" data-tab="code">Architecture & Code</button>
+        <button type="button" class="tab-btn active" data-tab="overview">Overview</button>
+        <button type="button" class="tab-btn" data-tab="code">Architecture & Code</button>
       </div>
 
       <div class="dialog-tab-pane" id="pane-overview">
