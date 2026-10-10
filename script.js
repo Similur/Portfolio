@@ -14,7 +14,7 @@ const projectDetails = {
     contribution: 'I took over the integration and wrote daily sync scripts in Microsoft Fabric using Instructure’s Python library. I maintained the workflows, checked the data, and investigated slow or failed syncs, working with vendor support when needed.',[cite: 1]
     outcome: 'Reporting teams had a daily integration they could use for learning platform data, along with repeatable ways to check the data and troubleshoot issues.',[cite: 1]
     disclosure: 'This case study describes my professional work. It leaves out the original source code, institutional data, credentials, and internal architecture.',[cite: 1]
-    codeSnippet: `# Canvas Data 2 Daily Extraction Pattern
+    codeSnippet: `# Canvas Data 2 Extraction Pattern
 from canvas_data2 import CanvasDataClient
 from pyspark.sql.functions import current_timestamp, lit
 
@@ -161,151 +161,168 @@ spark.createDataFrame(parsed_items).write.format("delta").saveAsTable("silver_su
   }
 };
 
-const $ = id => document.getElementById(id);[cite: 1]
+function initApp() {
+  const $ = id => document.getElementById(id);[cite: 1]
 
-// Safe Global Event Delegation
-document.addEventListener('click', (e) => {
-  // 1. FILTER PILLS
-  const filterBtn = e.target.closest('.filter-btn');
-  if (filterBtn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    filterBtn.classList.add('active');
-
-    const filter = filterBtn.dataset.filter;
-    document.querySelectorAll('.project-grid .project-card').forEach(card => {
-      const cats = card.dataset.category || '';
-      if (filter === 'all' || cats.includes(filter)) {
-        card.classList.remove('is-hidden');
-      } else {
-        card.classList.add('is-hidden');
-      }
-    });
-    return;
-  }
-
-  // 2. LIVE SIMULATOR BUTTON
-  const simBtn = e.target.closest('#run-sim-btn');
-  if (simBtn) {
-    const simTerminal = $('sim-terminal');
-    const nodeIngest = $('sim-node-ingest');
-    const nodeTransform = $('sim-node-transform');
-    const nodeServe = $('sim-node-serve');
-
-    if (!simTerminal) return;
-
-    simBtn.disabled = true;
-    simBtn.textContent = 'Running...';
-
-    // Clear state
-    [nodeIngest, nodeTransform, nodeServe].forEach(n => {
-      if (n) n.classList.remove('sim-active', 'active');
-    });
-
-    simTerminal.innerHTML = `<div><span class="code-muted"># initiating live pipeline run...</span></div>`;
-
-    setTimeout(() => {
-      if (nodeIngest) nodeIngest.classList.add('sim-active');
-      simTerminal.innerHTML += `<div><span class="code-blue">[0.12s] Ingesting:</span> Fetching CRM API payload (100 records)...</div>`;
-    }, 400);
-
-    setTimeout(() => {
-      if (nodeIngest) nodeIngest.classList.remove('sim-active');
-      if (nodeTransform) nodeTransform.classList.add('sim-active');
-      simTerminal.innerHTML += `<div><span class="code-blue">[0.38s] Transforming:</span> Window deduplication & schema validation...</div>`;
-    }, 1100);
-
-    setTimeout(() => {
-      if (nodeTransform) nodeTransform.classList.remove('sim-active');
-      if (nodeServe) nodeServe.classList.add('sim-active');
-      simTerminal.innerHTML += `<div><span class="code-blue">[0.65s] Merging:</span> Executing idempotent Delta Lake MERGE...</div>`;
-    }, 1800);
-
-    setTimeout(() => {
-      if (nodeServe) nodeServe.classList.remove('sim-active');
-      if (nodeTransform) nodeTransform.classList.add('active');
-      simTerminal.innerHTML += `<div class="code-success">✓ 100% reconciled. 0 duplicates. Delta tables published.</div>`;
-      simBtn.disabled = false;
-      simBtn.textContent = '↺ Re-run Pipeline';
-    }, 2600);
-    return;
-  }
-
-  // 3. MODAL OPEN (Case Studies)
-  const caseStudyTrigger = e.target.closest('[data-project]');
-  if (caseStudyTrigger) {
-    e.preventDefault();
-    const projectKey = caseStudyTrigger.getAttribute('data-project');
-    const item = projectDetails[projectKey];
-    const dialog = $('project-dialog');
-    if (!item || !dialog) return;
-
-    ['kicker', 'title', 'intro', 'challenge', 'contribution', 'outcome', 'disclosure'].forEach(key => {
-      const el = $(`dialog-${key}`);
-      if (el) el.textContent = item[key] || '';
-    });
-
-    const codeEl = $('dialog-code');
-    if (codeEl) codeEl.textContent = item.codeSnippet || '# Code snippet pattern omitted.';
-
-    // Reset tab to overview
-    document.querySelectorAll('.dialog-tabs .tab-btn').forEach(t => {
-      t.classList.toggle('active', t.dataset.tab === 'overview');
-    });
-    const paneOverview = $('pane-overview');
-    const paneCode = $('pane-code');
-    if (paneOverview) paneOverview.classList.remove('is-hidden');
-    if (paneCode) paneCode.classList.add('is-hidden');
-
-    typeof dialog.showModal === 'function' ? dialog.showModal() : dialog.setAttribute('open', '');
-    return;
-  }
-
-  // 4. MODAL TABS (Overview vs Code)
-  const tabBtn = e.target.closest('.dialog-tabs .tab-btn');
-  if (tabBtn) {
-    document.querySelectorAll('.dialog-tabs .tab-btn').forEach(t => t.classList.remove('active'));
-    tabBtn.classList.add('active');
-
-    const isCode = tabBtn.dataset.tab === 'code';
-    const paneOverview = $('pane-overview');
-    const paneCode = $('pane-code');
-
-    if (paneOverview && paneCode) {
-      paneOverview.classList.toggle('is-hidden', isCode);
-      paneCode.classList.toggle('is-hidden', !isCode);
-    }
-    return;
-  }
-
-  // 5. MODAL CLOSE
-  const dialog = $('project-dialog');
-  if (dialog) {
-    if (e.target.closest('#dialog-close') || e.target === dialog) {
-      dialog.close ? dialog.close() : dialog.removeAttribute('open');
-    }
-  }
-});
-
-// Setup static year and contact buttons immediately
-document.addEventListener('DOMContentLoaded', () => {
+  // Set Year
   const yearEl = $('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  if (yearEl) yearEl.textContent = new Date().getFullYear();[cite: 1]
 
-  // Mobile menu toggle
+  // Mobile menu
   const menu = document.querySelector('.menu-toggle');
   const nav = $('site-nav');
   if (menu && nav) {
-    menu.addEventListener('click', () => {
+    menu.onclick = () => {
       const open = nav.classList.toggle('open');
       menu.setAttribute('aria-expanded', String(open));
       menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    });
+    };
     nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
+      a.onclick = () => {
         nav.classList.remove('open');
         menu.setAttribute('aria-expanded', 'false');
-        menu.setAttribute('aria-label', 'Open menu');
-      });
+      };
     });
   }
-});
+
+  // 1. FILTER PILLS
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-grid .project-card');
+
+  filterButtons.forEach(btn => {
+    btn.onclick = () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const cat = card.dataset.category || '';
+        if (filter === 'all' || cat.includes(filter)) {
+          card.classList.remove('is-hidden');
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+    };
+  });
+
+  // 2. LIVE SIMULATOR
+  const simBtn = $('run-sim-btn');
+  const simTerminal = $('sim-terminal');
+  const nodeIngest = $('sim-node-ingest');
+  const nodeTransform = $('sim-node-transform');
+  const nodeServe = $('sim-node-serve');
+
+  if (simBtn && simTerminal) {
+    let isRunning = false;
+    simBtn.onclick = () => {
+      if (isRunning) return;
+      isRunning = true;
+      simBtn.disabled = true;
+      simBtn.textContent = 'Running...';
+
+      [nodeIngest, nodeTransform, nodeServe].forEach(n => {
+        if (n) n.classList.remove('sim-active', 'active');
+      });
+
+      simTerminal.innerHTML = `<div><span class="code-muted"># initiating live pipeline run...</span></div>`;
+
+      setTimeout(() => {
+        if (nodeIngest) nodeIngest.classList.add('sim-active');
+        simTerminal.innerHTML += `<div><span class="code-blue">[0.12s] Ingesting:</span> Fetching CRM API payload (100 records)...</div>`;
+      }, 350);
+
+      setTimeout(() => {
+        if (nodeIngest) nodeIngest.classList.remove('sim-active');
+        if (nodeTransform) nodeTransform.classList.add('sim-active');
+        simTerminal.innerHTML += `<div><span class="code-blue">[0.38s] Transforming:</span> Window deduplication & schema validation...</div>`;
+      }, 1050);
+
+      setTimeout(() => {
+        if (nodeTransform) nodeTransform.classList.remove('sim-active');
+        if (nodeServe) nodeServe.classList.add('sim-active');
+        simTerminal.innerHTML += `<div><span class="code-blue">[0.65s] Merging:</span> Executing idempotent Delta Lake MERGE...</div>`;
+      }, 1750);
+
+      setTimeout(() => {
+        if (nodeServe) nodeServe.classList.remove('sim-active');
+        if (nodeTransform) nodeTransform.classList.add('active');
+        simTerminal.innerHTML += `<div class="code-success">✓ 100% reconciled. 0 duplicates. Delta tables published.</div>`;
+        simBtn.disabled = false;
+        simBtn.textContent = '↺ Re-run Pipeline';
+        isRunning = false;
+      }, 2500);
+    };
+  }
+
+  // 3. CASE STUDY MODAL DIALOG
+  const dialog = $('project-dialog');
+  const codeBox = $('dialog-code');
+  const paneOverview = $('pane-overview');
+  const paneCode = $('pane-code');
+  const tabBtns = document.querySelectorAll('.dialog-tabs .tab-btn');
+
+  // Tab switching
+  tabBtns.forEach(tab => {
+    tab.onclick = () => {
+      tabBtns.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const isCode = tab.dataset.tab === 'code';
+      if (paneOverview) paneOverview.classList.toggle('is-hidden', isCode);
+      if (paneCode) paneCode.classList.toggle('is-hidden', !isCode);
+    };
+  });
+
+  // Open modal on click of any .text-link button
+  document.querySelectorAll('[data-project]').forEach(trigger => {
+    trigger.onclick = (e) => {
+      e.preventDefault();
+      const key = trigger.dataset.project;
+      const data = projectDetails[key];
+      if (!data || !dialog) return;
+
+      ['kicker', 'title', 'intro', 'challenge', 'contribution', 'outcome', 'disclosure'].forEach(field => {
+        const target = $(`dialog-${field}`);
+        if (target) target.textContent = data[field] || '';
+      });
+
+      if (codeBox) codeBox.textContent = data.codeSnippet || '# Code snippet unavailable';
+
+      // Reset to overview tab
+      tabBtns.forEach(t => t.classList.toggle('active', t.dataset.tab === 'overview'));
+      if (paneOverview) paneOverview.classList.remove('is-hidden');
+      if (paneCode) paneCode.classList.add('is-hidden');
+
+      if (typeof dialog.showModal === 'function') {
+        dialog.showModal();[cite: 1]
+      } else {
+        dialog.setAttribute('open', '');
+      }
+    };
+  });
+
+  // Close modal
+  const closeBtn = $('dialog-close');
+  if (closeBtn && dialog) {
+    closeBtn.onclick = () => {
+      if (dialog.close) dialog.close();
+      dialog.removeAttribute('open');
+    };
+  }
+  if (dialog) {
+    dialog.onclick = (e) => {
+      if (e.target === dialog) {
+        if (dialog.close) dialog.close();
+        dialog.removeAttribute('open');
+      }
+    };
+  }
+}
+
+// Ensure execution whether DOM has loaded or is already parsed
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
