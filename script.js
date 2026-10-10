@@ -1,19 +1,19 @@
-
+// EDIT THESE to activate your contact buttons. Leave empty to hide a button.
 const profile = {
-  email: 'ferreira.dylan98@gmail.com',[cite: 1]
-  github: 'https://github.com/Similur',[cite: 1]
-  linkedin: 'https://www.linkedin.com/in/dylanferreirais/'[cite: 1]
+  email: 'ferreira.dylan98@gmail.com',
+  github: 'https://github.com/Similur',
+  linkedin: 'https://www.linkedin.com/in/dylanferreirais/'
 };
 
 const projectDetails = {
   canvas: {
-    kicker: 'PROJECT 01 · DATA INTEGRATION',[cite: 1]
-    title: 'Canvas Data 2 Integration',[cite: 1]
-    intro: 'I took over a learning platform data integration and put its recurring syncs into a consistent workflow.',[cite: 1]
-    challenge: 'Moving to Canvas Data 2 meant changing how we extracted and synced data. Large entities, especially submissions, could take a long time to sync and sometimes needed troubleshooting.',[cite: 1]
-    contribution: 'I took over the integration and wrote daily sync scripts in Microsoft Fabric using Instructure’s Python library. I maintained the workflows, checked the data, and investigated slow or failed syncs, working with vendor support when needed.',[cite: 1]
-    outcome: 'Reporting teams had a daily integration they could use for learning platform data, along with repeatable ways to check the data and troubleshoot issues.',[cite: 1]
-    disclosure: 'This case study describes my professional work. It leaves out the original source code, institutional data, credentials, and internal architecture.'[cite: 1]
+    kicker: 'PROJECT 01 · DATA INTEGRATION',
+    title: 'Canvas Data 2 Integration',
+    intro: 'I took over a learning platform data integration and put its recurring syncs into a consistent workflow.',
+    challenge: 'Moving to Canvas Data 2 meant changing how we extracted and synced data. Large entities, especially submissions, could take a long time to sync and sometimes needed troubleshooting.',
+    contribution: 'I took over the integration and wrote daily sync scripts in Microsoft Fabric using Instructure’s Python library. I maintained the workflows, checked the data, and investigated slow or failed syncs, working with vendor support when needed.',
+    outcome: 'Reporting teams had a daily integration they could use for learning platform data, along with repeatable ways to check the data and troubleshoot issues.',
+    disclosure: 'This case study describes my professional work. It leaves out the original source code, institutional data, credentials, and internal architecture.'
   },
   fabric: {
     kicker: 'PROJECT 02 · DATA AUTOMATION',
@@ -22,16 +22,16 @@ const projectDetails = {
     challenge: 'Roughly 30 daily month-to-date and year-to-date Excel extracts contained overlapping records and shifting formats, requiring manual reconciliation to ensure continuity with legacy imports.',
     contribution: 'I built PySpark notebooks in Fabric to ingest and standardize disparate workbooks, applied custom MTD and YTD business logic, and landed cleaned data from Bronze to Silver Delta tables. I then validated record counts and totals in Power BI against legacy imports.',
     outcome: 'Replaced manual daily file consolidation with an automated, idempotent pipeline, saving team hours and eliminating reporting discrepancies.',
-    disclosure: 'This project comes from my previous professional work. Any code I publish later will use recreated logic and synthetic data.'[cite: 1]
+    disclosure: 'This project comes from my previous professional work. Any code I publish later will use recreated logic and synthetic data.'
   },
   ml: {
-    kicker: 'PROJECT 03 · APPLIED MACHINE LEARNING',[cite: 1]
-    title: 'Predictive Risk & Student Success Models',[cite: 1]
-    intro: 'I worked on predictive models to help operational teams spot risks earlier.',[cite: 1]
-    challenge: 'Support teams needed earlier warning that students might struggle or leave. Finance teams also needed a clearer view of repayment risk.',[cite: 1]
-    contribution: 'I built the models in Pecan AI, tested which available features were useful, and refined the inputs. I focused on signals teams could use, including student outcomes early in a course and financial repayment risk using a 120-day bad-debt reference point.',[cite: 1]
-    outcome: 'The predictions were intended to help teams intervene earlier and make better-informed operational decisions. Specific performance metrics are not shared publicly.',[cite: 1]
-    disclosure: 'This case study explains the approach. It does not include student-level records, training data, proprietary model artifacts, or unverified performance claims.'[cite: 1]
+    kicker: 'PROJECT 03 · APPLIED MACHINE LEARNING',
+    title: 'Predictive Risk & Student Success Models',
+    intro: 'I worked on predictive models to help operational teams spot risks earlier.',
+    challenge: 'Support teams needed earlier warning that students might struggle or leave. Finance teams also needed a clearer view of repayment risk.',
+    contribution: 'I built the models in Pecan AI, tested which available features were useful, and refined the inputs. I focused on signals teams could use, including student outcomes early in a course and financial repayment risk using a 120-day bad-debt reference point.',
+    outcome: 'The predictions were intended to help teams intervene earlier and make better-informed operational decisions. Specific performance metrics are not shared publicly.',
+    disclosure: 'This case study explains the approach. It does not include student-level records, training data, proprietary model artifacts, or unverified performance claims.'
   },
   quality: {
     kicker: 'PROJECT 04 · DATA VALIDATION',
@@ -62,41 +62,81 @@ const projectDetails = {
   }
 };
 
-const $= id => document.getElementById(id);[cite: 1]$('year').textContent = new Date().getFullYear();[cite: 1]
+document.addEventListener('DOMContentLoaded', () => {
+  const $ = id => document.getElementById(id);
 
-function addContactLink(id, href) {
-  if (!href) return;[cite: 1]
-  const node = $(id);[cite: 1]
-  node.href = href;[cite: 1]
-  node.hidden = false;[cite: 1]
-}
-addContactLink('email-link', profile.email ? `mailto:${profile.email}` : '');[cite: 1]
-addContactLink('github-link', profile.github);[cite: 1]
-addContactLink('linkedin-link', profile.linkedin);[cite: 1]
-if (profile.email || profile.github || profile.linkedin) $('contact-hint').hidden = true;[cite: 1]
+  // Set current footer year
+  const yearEl = $('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-const dialog = $('project-dialog');[cite: 1]
-document.querySelectorAll('[data-project]').forEach(button => {
-  button.addEventListener('click', () => {
-    const item = projectDetails[button.dataset.project];[cite: 1]
-    if (!item) return;[cite: 1]
-    ['kicker', 'title', 'intro', 'challenge', 'contribution', 'outcome', 'disclosure'].forEach(key => {
-      $(`dialog-${key}`).textContent = item[key];[cite: 1]
+  // Social / Contact links
+  function addContactLink(id, href) {
+    if (!href) return;
+    const node = $(id);
+    if (node) {
+      node.href = href;
+      node.hidden = false;
+    }
+  }
+  addContactLink('email-link', profile.email ? `mailto:${profile.email}` : '');
+  addContactLink('github-link', profile.github);
+  addContactLink('linkedin-link', profile.linkedin);
+
+  const contactHint = $('contact-hint');
+  if (contactHint && (profile.email || profile.github || profile.linkedin)) {
+    contactHint.hidden = true;
+  }
+
+  // Dialog / Modal handler
+  const dialog = $('project-dialog');
+  if (dialog) {
+    document.querySelectorAll('[data-project]').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectKey = button.dataset.project;
+        const item = projectDetails[projectKey];
+        if (!item) {
+          console.warn(`Project detail not found for key: ${projectKey}`);
+          return;
+        }
+
+        ['kicker', 'title', 'intro', 'challenge', 'contribution', 'outcome', 'disclosure'].forEach(key => {
+          const el = $(`dialog-${key}`);
+          if (el) el.textContent = item[key] || '';
+        });
+
+        if (typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute('open', '');
+        }
+      });
     });
-    dialog.showModal();[cite: 1]
-  });
+
+    const closeBtn = $('dialog-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => dialog.close());
+    }
+
+    dialog.addEventListener('click', e => {
+      if (e.target === dialog) dialog.close();
+    });
+  }
+
+  // Mobile menu navigation
+  const menu = document.querySelector('.menu-toggle');
+  const nav = $('site-nav');
+  if (menu && nav) {
+    menu.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+      menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menu.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-label', 'Open menu');
+    }));
+  }
 });
-$('dialog-close').addEventListener('click', () => dialog.close());[cite: 1]
-dialog.addEventListener('click', e => { if (e.target === dialog) dialog.close(); });[cite: 1]
-const menu = document.querySelector('.menu-toggle');[cite: 1]
-const nav = $('site-nav');[cite: 1]
-menu.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');[cite: 1]
-  menu.setAttribute('aria-expanded', String(open));[cite: 1]
-  menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');[cite: 1]
-});
-nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  nav.classList.remove('open');[cite: 1]
-  menu.setAttribute('aria-expanded', 'false');[cite: 1]
-  menu.setAttribute('aria-label', 'Open menu');[cite: 1]
-}));[cite: 1]
