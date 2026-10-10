@@ -62,4 +62,103 @@ const projectDetails = {
   }
 };
 
-document.addEventListener('DOMContentLoaded', ()
+const $ = id => document.getElementById(id);
+
+function initPortfolio() {
+  // 1. Current Year
+  const yearEl = $('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // 2. Contact Links
+  function setContactLink(id, href) {
+    const node = $(id);
+    if (!node) return;
+    if (href) {
+      node.href = href;
+      node.removeAttribute('hidden');
+      node.style.display = 'inline-flex';
+    } else {
+      node.setAttribute('hidden', '');
+      node.style.display = 'none';
+    }
+  }
+
+  setContactLink('email-link', profile.email ? `mailto:${profile.email}` : '');
+  setContactLink('github-link', profile.github);
+  setContactLink('linkedin-link', profile.linkedin);
+
+  const contactHint = $('contact-hint');
+  if (contactHint && (profile.email || profile.github || profile.linkedin)) {
+    contactHint.setAttribute('hidden', '');
+    contactHint.style.display = 'none';
+  }
+
+  // 3. Modal / Dialog Handler (Global Event Delegation)
+  const dialog = $('project-dialog');
+
+  document.addEventListener('click', (e) => {
+    // Check if clicked element or any parent has data-project
+    const trigger = e.target.closest('[data-project]');
+    if (trigger) {
+      e.preventDefault();
+      const projectKey = trigger.getAttribute('data-project');
+      const item = projectDetails[projectKey];
+
+      if (!item) {
+        console.warn(`No details found for project: "${projectKey}"`);
+        return;
+      }
+
+      ['kicker', 'title', 'intro', 'challenge', 'contribution', 'outcome', 'disclosure'].forEach(key => {
+        const el = $(`dialog-${key}`);
+        if (el) el.textContent = item[key] || '';
+      });
+
+      if (dialog) {
+        if (typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          dialog.setAttribute('open', '');
+        }
+      }
+      return;
+    }
+
+    // Close button click
+    if (e.target.closest('#dialog-close')) {
+      if (dialog) dialog.close ? dialog.close() : dialog.removeAttribute('open');
+      return;
+    }
+
+    // Backdrop click
+    if (e.target === dialog) {
+      dialog.close ? dialog.close() : dialog.removeAttribute('open');
+    }
+  });
+
+  // 4. Mobile Navigation Toggle
+  const menu = document.querySelector('.menu-toggle');
+  const nav = $('site-nav');
+  if (menu && nav) {
+    menu.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+      menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-label', 'Open menu');
+      });
+    });
+  }
+}
+
+// Run immediately if DOM is ready, otherwise on DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPortfolio);
+} else {
+  initPortfolio();
+}
