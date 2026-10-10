@@ -1,34 +1,21 @@
-// EDIT THESE to activate your contact buttons. Leave empty to hide a button.
+// --- Profile Config ---
 const profile = {
-  email: 'ferreira.dylan98@gmail.com',[cite: 1]
-  github: 'https://github.com/Similur',[cite: 1]
-  linkedin: 'https://www.linkedin.com/in/dylanferreirais/'[cite: 1]
+  email: 'ferreira.dylan98@gmail.com',
+  github: 'https://github.com/Similur',
+  linkedin: 'https://www.linkedin.com/in/dylanferreirais/'
 };
 
+// --- Project Data ---
 const projectDetails = {
   canvas: {
-    kicker: 'PROJECT 01 · DATA INTEGRATION',[cite: 1]
-    title: 'Canvas Data 2 Integration',[cite: 1]
-    intro: 'I took over a learning platform data integration and put its recurring syncs into a consistent workflow.',[cite: 1]
-    challenge: 'Moving to Canvas Data 2 meant changing how we extracted and synced data. Large entities, especially submissions, could take a long time to sync and sometimes needed troubleshooting.',[cite: 1]
-    contribution: 'I took over the integration and wrote daily sync scripts in Microsoft Fabric using Instructure’s Python library. I maintained the workflows, checked the data, and investigated slow or failed syncs, working with vendor support when needed.',[cite: 1]
-    outcome: 'Reporting teams had a daily integration they could use for learning platform data, along with repeatable ways to check the data and troubleshoot issues.',[cite: 1]
-    disclosure: 'This case study describes my professional work. It leaves out the original source code, institutional data, credentials, and internal architecture.',[cite: 1]
-    codeSnippet: `# Canvas Data 2 Extraction Pattern
-from canvas_data2 import CanvasDataClient
-from pyspark.sql.functions import current_timestamp, lit
-
-client = CanvasDataClient(api_key=API_KEY, api_secret=API_SECRET)
-tables = ["submissions", "courses", "users"]
-
-for tbl in tables:
-    raw_batch = client.fetch_table(tbl)
-    df_bronze = (
-        spark.createDataFrame(raw_batch)
-        .withColumn("ingestion_ts", current_timestamp())
-        .withColumn("source_system", lit("Canvas_Data_2"))
-    )
-    df_bronze.write.format("delta").mode("append").saveAsTable(f"bronze_{tbl}")`
+    kicker: 'PROJECT 01 · DATA INTEGRATION',
+    title: 'Canvas Data 2 Integration',
+    intro: 'I took over a learning platform data integration and put its recurring syncs into a consistent workflow.',
+    challenge: 'Moving to Canvas Data 2 meant changing how we extracted and synced data. Large entities, especially submissions, could take a long time to sync and sometimes needed troubleshooting.',
+    contribution: 'I took over the integration and wrote daily sync scripts in Microsoft Fabric using Instructure’s Python library. I maintained the workflows, checked the data, and investigated slow or failed syncs, working with vendor support when needed.',
+    outcome: 'Reporting teams had a daily integration they could use for learning platform data, along with repeatable ways to check the data and troubleshoot issues.',
+    disclosure: 'This case study describes my professional work. It leaves out the original source code, institutional data, credentials, and internal architecture.',
+    codeSnippet: `# Canvas Data 2 Extraction Pattern\nfrom canvas_data2 import CanvasDataClient\nfrom pyspark.sql.functions import current_timestamp, lit\n\nclient = CanvasDataClient(api_key=API_KEY, api_secret=API_SECRET)\ntables = ["submissions", "courses", "users"]\n\nfor tbl in tables:\n    raw_batch = client.fetch_table(tbl)\n    df_bronze = (\n        spark.createDataFrame(raw_batch)\n        .withColumn("ingestion_ts", current_timestamp())\n        .withColumn("source_system", lit("Canvas_Data_2"))\n    )\n    df_bronze.write.format("delta").mode("append").saveAsTable(f"bronze_{tbl}")`
   },
   fabric: {
     kicker: 'PROJECT 02 · DATA AUTOMATION',
@@ -38,47 +25,17 @@ for tbl in tables:
     contribution: 'I built PySpark notebooks in Fabric to ingest and standardize disparate workbooks, applied custom MTD and YTD business logic, and landed cleaned data from Bronze to Silver Delta tables. I then validated record counts and totals in Power BI against legacy imports.',
     outcome: 'Replaced manual daily file consolidation with an automated, idempotent pipeline, saving team hours and eliminating reporting discrepancies.',
     disclosure: 'This project comes from my previous professional work. Any code I publish later will use recreated logic and synthetic data.',
-    codeSnippet: `# Multi-Workbook Consolidation with Running Totals
-from pyspark.sql.functions import col, sum, row_number
-from pyspark.sql.window import Window
-
-df_raw = spark.read.format("excel").load("Files/daily_extracts/*.xlsx")
-
-# Windowed deduplication on composite key
-dedup_window = Window.partitionBy("account_id", "period").orderBy(col("file_date").desc())
-df_clean = df_raw.withColumn("rn", row_number().over(dedup_window)).filter("rn = 1").drop("rn")
-
-# Calculate MTD and YTD metrics
-df_silver = (
-    df_clean
-    .withColumn("ytd_total", sum("amount").over(Window.partitionBy("fiscal_year")))
-    .withColumn("mtd_total", sum("amount").over(Window.partitionBy("fiscal_month")))
-)
-
-df_silver.write.format("delta").mode("overwrite").saveAsTable("silver_financial_summaries")`
+    codeSnippet: `# Multi-Workbook Consolidation & MTD/YTD Aggregations\nfrom pyspark.sql.functions import col, sum, row_number\nfrom pyspark.sql.window import Window\n\ndf_raw = spark.read.format("excel").load("Files/daily_extracts/*.xlsx")\n\ndedup_window = Window.partitionBy("account_id", "period").orderBy(col("file_date").desc())\ndf_clean = df_raw.withColumn("rn", row_number().over(dedup_window)).filter("rn = 1").drop("rn")\n\ndf_silver = (\n    df_clean\n    .withColumn("ytd_total", sum("amount").over(Window.partitionBy("fiscal_year")))\n    .withColumn("mtd_total", sum("amount").over(Window.partitionBy("fiscal_month")))\n)\n\ndf_silver.write.format("delta").mode("overwrite").saveAsTable("silver_financial_summaries")`
   },
   ml: {
-    kicker: 'PROJECT 03 · APPLIED MACHINE LEARNING',[cite: 1]
-    title: 'Predictive Risk & Student Success Models',[cite: 1]
-    intro: 'I worked on predictive models to help operational teams spot risks earlier.',[cite: 1]
-    challenge: 'Support teams needed earlier warning that students might struggle or leave. Finance teams also needed a clearer view of repayment risk.',[cite: 1]
-    contribution: 'I built the models in Pecan AI, tested which available features were useful, and refined the inputs. I focused on signals teams could use, including student outcomes early in a course and financial repayment risk using a 120-day bad-debt reference point.',[cite: 1]
-    outcome: 'The predictions were intended to help teams intervene earlier and make better-informed operational decisions. Specific performance metrics are not shared publicly.',[cite: 1]
-    disclosure: 'This case study explains the approach. It does not include student-level records, training data, proprietary model artifacts, or unverified performance claims.',[cite: 1]
-    codeSnippet: `# Risk Signal & Feature Preparation
-from pyspark.sql.functions import col, when, datediff, current_date, avg
-
-df_features = (
-    spark.table("silver_student_records")
-    .groupBy("student_id")
-    .agg(
-        datediff(current_date(), max("last_interaction")).alias("days_inactive"),
-        avg("quiz_score").alias("score_avg")
-    )
-    .withColumn("repayment_risk_flag", when(col("days_inactive") > 120, 1).otherwise(0))
-)
-
-# Features passed downstream to Pecan AI for training`
+    kicker: 'PROJECT 03 · APPLIED MACHINE LEARNING',
+    title: 'Predictive Risk & Student Success Models',
+    intro: 'I worked on predictive models to help operational teams spot risks earlier.',
+    challenge: 'Support teams needed earlier warning that students might struggle or leave. Finance teams also needed a clearer view of repayment risk.',
+    contribution: 'I built the models in Pecan AI, tested which available features were useful, and refined the inputs. I focused on signals teams could use, including student outcomes early in a course and financial repayment risk using a 120-day bad-debt reference point.',
+    outcome: 'The predictions were intended to help teams intervene earlier and make better-informed operational decisions. Specific performance metrics are not shared publicly.',
+    disclosure: 'This case study explains the approach. It does not include student-level records, training data, proprietary model artifacts, or unverified performance claims.',
+    codeSnippet: `# Risk Signal Preparation\nfrom pyspark.sql.functions import col, when, datediff, current_date, avg\n\ndf_features = (\n    spark.table("silver_student_records")\n    .groupBy("student_id")\n    .agg(\n        datediff(current_date(), max("last_interaction")).alias("days_inactive"),\n        avg("quiz_score").alias("score_avg")\n    )\n    .withColumn("repayment_risk_flag", when(col("days_inactive") > 120, 1).otherwise(0))\n)`
   },
   quality: {
     kicker: 'PROJECT 04 · DATA VALIDATION',
@@ -88,18 +45,7 @@ df_features = (
     contribution: 'I built automated reconciliation suites using SQL and PySpark that cross-check source-to-target record counts, validate schemas, detect duplicate keys, and verify aggregated metrics prior to downstream consumption.',
     outcome: 'Gave analysts and stakeholders confidence in migration cutovers by catching data drift and edge-case drops before data reached production reports.',
     disclosure: 'The design reflects patterns from my production work and adheres to clean architecture principles without disclosing proprietary assets.',
-    codeSnippet: `# Automated Reconciliation Suite
-def run_reconciliation(source_df, target_table_name, key_col):
-    target_df = spark.table(target_table_name)
-    
-    # 1. Row count match check
-    assert source_df.count() == target_df.count(), "Row counts do not match!"
-    
-    # 2. Duplicate detection check
-    dupe_count = target_df.groupBy(key_col).count().filter("count > 1").count()
-    assert dupe_count == 0, f"Found {dupe_count} duplicate keys!"
-    
-    print(f"✓ All quality validations passed for {target_table_name}.")`
+    codeSnippet: `# Automated Reconciliation Suite\ndef run_reconciliation(source_df, target_table_name, key_col):\n    target_df = spark.table(target_table_name)\n    assert source_df.count() == target_df.count(), "Row counts do not match!"\n    dupe_count = target_df.groupBy(key_col).count().filter("count > 1").count()\n    assert dupe_count == 0, f"Found {dupe_count} duplicate keys!"\n    print(f"✓ Validations passed for {target_table_name}")`
   },
   crm: {
     kicker: 'PROJECT 05 · REST API & LAKEHOUSE',
@@ -109,29 +55,7 @@ def run_reconciliation(source_df, target_table_name, key_col):
     contribution: 'I wrote Fabric PySpark notebooks that stage raw JSON payloads in a Bronze Delta table with ingestion audit metadata. I then extracted, cleaned, and deduplicated records using windowing functions before performing idempotent merges into the Silver Delta layer.',
     outcome: 'Eliminated manual CRM data exports and provided analysts with clean, query-ready Delta tables optimized via Z-ordering for fast downstream Power BI reporting.',
     disclosure: 'This case study reflects architectural patterns from my professional work. All endpoints, credentials, and customer records have been omitted.',
-    codeSnippet: `# Idempotent Delta MERGE in Fabric
-from delta.tables import DeltaTable
-
-silver_tbl = DeltaTable.forName(spark, "silver_crm_contacts")
-
-(
-    silver_tbl.alias("target")
-    .merge(
-        source=df_clean.alias("source"),
-        condition="target.contact_id = source.contact_id"
-    )
-    .whenMatchedUpdate(
-        condition="source.updated_at >= target.updated_at",
-        set={
-            "email": "source.email",
-            "name": "source.name",
-            "updated_at": "source.updated_at"
-        }
-    )
-    .whenNotMatchedInsertAll()
-    .execute()
-)
-spark.sql("OPTIMIZE silver_crm_contacts ZORDER BY (contact_id)")`
+    codeSnippet: `# Idempotent Delta MERGE in Microsoft Fabric\nfrom delta.tables import DeltaTable\n\nsilver_tbl = DeltaTable.forName(spark, "silver_crm_contacts")\n(\n    silver_tbl.alias("target")\n    .merge(\n        source=df_clean.alias("source"),\n        condition="target.contact_id = source.contact_id"\n    )\n    .whenMatchedUpdate(\n        condition="source.updated_at >= target.updated_at",\n        set={"email": "source.email", "name": "source.name", "updated_at": "source.updated_at"}\n    )\n    .whenNotMatchedInsertAll()\n    .execute()\n)\nspark.sql("OPTIMIZE silver_crm_contacts ZORDER BY (contact_id)")`
   },
   docintel: {
     kicker: 'PROJECT 06 · AI & DOCUMENT INTELLIGENCE',
@@ -141,188 +65,211 @@ spark.sql("OPTIMIZE silver_crm_contacts ZORDER BY (contact_id)")`
     contribution: 'I built Python extraction workflows integrated with Azure Document Intelligence to parse unstructured text, run NLP sentiment scoring, and structure key themes into standardized reporting datasets.',
     outcome: 'Turned qualitative survey responses into quantifiable trends and executive-ready summaries, giving decision-makers immediate visibility into operational sentiment.',
     disclosure: 'This project describes my technical approach. Proprietary survey instruments, individual responses, and internal models are excluded.',
-    codeSnippet: `# Document Extraction & NLP Scoring Pipeline
-from azure.ai.formrecognizer import DocumentAnalysisClient
-from azure.core.credentials import AzureKeyCredential
-
-client = DocumentAnalysisClient(AZURE_ENDPOINT, AzureKeyCredential(AZURE_KEY))
-
-with open("batch_feedback.pdf", "rb") as doc:
-    poller = client.begin_analyze_document("prebuilt-layout", doc)
-    result = poller.result()
-
-parsed_items = []
-for page in result.pages:
-    for line in page.lines:
-        sentiment = score_text_sentiment(line.content)
-        parsed_items.append({"feedback": line.content, "score": sentiment})
-
-spark.createDataFrame(parsed_items).write.format("delta").saveAsTable("silver_survey_intelligence")`
+    codeSnippet: `# Document Extraction & NLP Scoring Pipeline\nfrom azure.ai.formrecognizer import DocumentAnalysisClient\nfrom azure.core.credentials import AzureKeyCredential\n\nclient = DocumentAnalysisClient(AZURE_ENDPOINT, AzureKeyCredential(AZURE_KEY))\nwith open("batch_feedback.pdf", "rb") as doc:\n    poller = client.begin_analyze_document("prebuilt-layout", doc)\n    result = poller.result()\n\nparsed_items = []\nfor page in result.pages:\n    for line in page.lines:\n        sentiment = score_text_sentiment(line.content)\n        parsed_items.append({"feedback": line.content, "score": sentiment})\n\nspark.createDataFrame(parsed_items).write.format("delta").saveAsTable("silver_survey_intelligence")`
   }
 };
 
-function initApp() {
-  const $ = id => document.getElementById(id);[cite: 1]
+// Global Event Handler - Never fails silently
+document.addEventListener('click', function(event) {
+  // 1. PROJECT FILTER PILLS
+  const filterBtn = event.target.closest('.filter-btn');
+  if (filterBtn) {
+    event.preventDefault();
+    try {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      filterBtn.classList.add('active');
 
-  // Set Year
-  const yearEl = $('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();[cite: 1]
+      const filterVal = filterBtn.getAttribute('data-filter') || 'all';
+      const cards = document.querySelectorAll('.project-grid .project-card');
 
-  // Mobile menu
-  const menu = document.querySelector('.menu-toggle');
-  const nav = $('site-nav');
-  if (menu && nav) {
-    menu.onclick = () => {
-      const open = nav.classList.toggle('open');
-      menu.setAttribute('aria-expanded', String(open));
-      menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    };
-    nav.querySelectorAll('a').forEach(a => {
-      a.onclick = () => {
-        nav.classList.remove('open');
-        menu.setAttribute('aria-expanded', 'false');
-      };
-    });
-  }
-
-  // 1. FILTER PILLS
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.project-grid .project-card');
-
-  filterButtons.forEach(btn => {
-    btn.onclick = () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.dataset.filter;
       cards.forEach(card => {
-        const cat = card.dataset.category || '';
-        if (filter === 'all' || cat.includes(filter)) {
+        const categories = card.getAttribute('data-category') || '';
+        if (filterVal === 'all' || categories.includes(filterVal)) {
           card.classList.remove('is-hidden');
+          card.style.display = '';
         } else {
           card.classList.add('is-hidden');
+          card.style.display = 'none';
         }
       });
-    };
-  });
+      console.log('Filter applied:', filterVal);
+    } catch (err) {
+      console.error('Filter error:', err);
+    }
+    return;
+  }
 
-  // 2. LIVE SIMULATOR
-  const simBtn = $('run-sim-btn');
-  const simTerminal = $('sim-terminal');
-  const nodeIngest = $('sim-node-ingest');
-  const nodeTransform = $('sim-node-transform');
-  const nodeServe = $('sim-node-serve');
+  // 2. LIVE SIMULATOR BUTTON
+  const simBtn = event.target.closest('#run-sim-btn');
+  if (simBtn) {
+    event.preventDefault();
+    try {
+      const terminal = document.getElementById('sim-terminal');
+      const nodeIngest = document.getElementById('sim-node-ingest');
+      const nodeTransform = document.getElementById('sim-node-transform');
+      const nodeServe = document.getElementById('sim-node-serve');
 
-  if (simBtn && simTerminal) {
-    let isRunning = false;
-    simBtn.onclick = () => {
-      if (isRunning) return;
-      isRunning = true;
+      if (!terminal) return;
+
       simBtn.disabled = true;
       simBtn.textContent = 'Running...';
 
       [nodeIngest, nodeTransform, nodeServe].forEach(n => {
-        if (n) n.classList.remove('sim-active', 'active');
+        if (n) {
+          n.classList.remove('sim-active', 'active');
+        }
       });
 
-      simTerminal.innerHTML = `<div><span class="code-muted"># initiating live pipeline run...</span></div>`;
+      terminal.innerHTML = '<div><span class="code-muted"># initiating live pipeline run...</span></div>';
 
       setTimeout(() => {
         if (nodeIngest) nodeIngest.classList.add('sim-active');
-        simTerminal.innerHTML += `<div><span class="code-blue">[0.12s] Ingesting:</span> Fetching CRM API payload (100 records)...</div>`;
+        terminal.innerHTML += '<div><span class="code-blue">[0.12s] Ingesting:</span> Fetching CRM API payload (100 records)...</div>';
       }, 350);
 
       setTimeout(() => {
         if (nodeIngest) nodeIngest.classList.remove('sim-active');
         if (nodeTransform) nodeTransform.classList.add('sim-active');
-        simTerminal.innerHTML += `<div><span class="code-blue">[0.38s] Transforming:</span> Window deduplication & schema validation...</div>`;
+        terminal.innerHTML += '<div><span class="code-blue">[0.38s] Transforming:</span> Window deduplication & schema validation...</div>';
       }, 1050);
 
       setTimeout(() => {
         if (nodeTransform) nodeTransform.classList.remove('sim-active');
         if (nodeServe) nodeServe.classList.add('sim-active');
-        simTerminal.innerHTML += `<div><span class="code-blue">[0.65s] Merging:</span> Executing idempotent Delta Lake MERGE...</div>`;
+        terminal.innerHTML += '<div><span class="code-blue">[0.65s] Merging:</span> Executing idempotent Delta Lake MERGE...</div>';
       }, 1750);
 
       setTimeout(() => {
         if (nodeServe) nodeServe.classList.remove('sim-active');
         if (nodeTransform) nodeTransform.classList.add('active');
-        simTerminal.innerHTML += `<div class="code-success">✓ 100% reconciled. 0 duplicates. Delta tables published.</div>`;
+        terminal.innerHTML += '<div class="code-success">✓ 100% reconciled. 0 duplicates. Delta tables published.</div>';
         simBtn.disabled = false;
         simBtn.textContent = '↺ Re-run Pipeline';
-        isRunning = false;
       }, 2500);
-    };
+      console.log('Simulator executed');
+    } catch (err) {
+      console.error('Simulator error:', err);
+    }
+    return;
   }
 
-  // 3. CASE STUDY MODAL DIALOG
-  const dialog = $('project-dialog');
-  const codeBox = $('dialog-code');
-  const paneOverview = $('pane-overview');
-  const paneCode = $('pane-code');
-  const tabBtns = document.querySelectorAll('.dialog-tabs .tab-btn');
+  // 3. CASE STUDY MODAL OPEN TRIGGER
+  const caseTrigger = event.target.closest('[data-project]');
+  if (caseTrigger) {
+    event.preventDefault();
+    try {
+      const projectKey = caseTrigger.getAttribute('data-project');
+      const item = projectDetails[projectKey];
+      const dialog = document.getElementById('project-dialog');
 
-  // Tab switching
-  tabBtns.forEach(tab => {
-    tab.onclick = () => {
-      tabBtns.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+      if (!item || !dialog) {
+        console.warn('Item or dialog missing for:', projectKey);
+        return;
+      }
 
-      const isCode = tab.dataset.tab === 'code';
-      if (paneOverview) paneOverview.classList.toggle('is-hidden', isCode);
-      if (paneCode) paneCode.classList.toggle('is-hidden', !isCode);
-    };
-  });
-
-  // Open modal on click of any .text-link button
-  document.querySelectorAll('[data-project]').forEach(trigger => {
-    trigger.onclick = (e) => {
-      e.preventDefault();
-      const key = trigger.dataset.project;
-      const data = projectDetails[key];
-      if (!data || !dialog) return;
-
-      ['kicker', 'title', 'intro', 'challenge', 'contribution', 'outcome', 'disclosure'].forEach(field => {
-        const target = $(`dialog-${field}`);
-        if (target) target.textContent = data[field] || '';
+      ['kicker', 'title', 'intro', 'challenge', 'contribution', 'outcome', 'disclosure'].forEach(key => {
+        const el = document.getElementById(`dialog-${key}`);
+        if (el) el.textContent = item[key] || '';
       });
 
-      if (codeBox) codeBox.textContent = data.codeSnippet || '# Code snippet unavailable';
+      const codeEl = document.getElementById('dialog-code');
+      if (codeEl) codeEl.textContent = item.codeSnippet || '# Code snippet pattern omitted.';
 
       // Reset to overview tab
-      tabBtns.forEach(t => t.classList.toggle('active', t.dataset.tab === 'overview'));
-      if (paneOverview) paneOverview.classList.remove('is-hidden');
-      if (paneCode) paneCode.classList.add('is-hidden');
+      document.querySelectorAll('.dialog-tabs .tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === 'overview');
+      });
+      const pOverview = document.getElementById('pane-overview');
+      const pCode = document.getElementById('pane-code');
+      if (pOverview) {
+        pOverview.classList.remove('is-hidden');
+        pOverview.style.display = 'block';
+      }
+      if (pCode) {
+        pCode.classList.add('is-hidden');
+        pCode.style.display = 'none';
+      }
 
       if (typeof dialog.showModal === 'function') {
-        dialog.showModal();[cite: 1]
+        dialog.showModal();
       } else {
         dialog.setAttribute('open', '');
       }
-    };
-  });
-
-  // Close modal
-  const closeBtn = $('dialog-close');
-  if (closeBtn && dialog) {
-    closeBtn.onclick = () => {
-      if (dialog.close) dialog.close();
-      dialog.removeAttribute('open');
-    };
+      console.log('Opened case study modal for:', projectKey);
+    } catch (err) {
+      console.error('Modal open error:', err);
+    }
+    return;
   }
-  if (dialog) {
-    dialog.onclick = (e) => {
-      if (e.target === dialog) {
-        if (dialog.close) dialog.close();
-        dialog.removeAttribute('open');
+
+  // 4. MODAL TAB TOGGLE (Overview vs Code)
+  const tabBtn = event.target.closest('.dialog-tabs .tab-btn');
+  if (tabBtn) {
+    event.preventDefault();
+    try {
+      document.querySelectorAll('.dialog-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+      tabBtn.classList.add('active');
+
+      const isCode = tabBtn.getAttribute('data-tab') === 'code';
+      const pOverview = document.getElementById('pane-overview');
+      const pCode = document.getElementById('pane-code');
+
+      if (pOverview && pCode) {
+        if (isCode) {
+          pOverview.classList.add('is-hidden');
+          pOverview.style.display = 'none';
+          pCode.classList.remove('is-hidden');
+          pCode.style.display = 'block';
+        } else {
+          pCode.classList.add('is-hidden');
+          pCode.style.display = 'none';
+          pOverview.classList.remove('is-hidden');
+          pOverview.style.display = 'block';
+        }
       }
+    } catch (err) {
+      console.error('Tab switch error:', err);
+    }
+    return;
+  }
+
+  // 5. MODAL CLOSE TRIGGERS
+  const closeBtn = event.target.closest('#dialog-close');
+  const dialogEl = document.getElementById('project-dialog');
+  if (closeBtn || event.target === dialogEl) {
+    if (dialogEl) {
+      if (typeof dialogEl.close === 'function') {
+        dialogEl.close();
+      }
+      dialogEl.removeAttribute('open');
+    }
+  }
+});
+
+// Setup static DOM items safely
+function setupPage() {
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const menu = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('site-nav');
+  if (menu && nav) {
+    menu.onclick = function() {
+      const open = nav.classList.toggle('open');
+      menu.setAttribute('aria-expanded', String(open));
+      menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     };
+    nav.querySelectorAll('a').forEach(a => {
+      a.onclick = function() {
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
+      };
+    });
   }
 }
 
-// Ensure execution whether DOM has loaded or is already parsed
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initApp);
+  document.addEventListener('DOMContentLoaded', setupPage);
 } else {
-  initApp();
+  setupPage();
 }
