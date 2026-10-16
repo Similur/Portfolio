@@ -26,9 +26,4 @@ Static vanilla ES6 + HTML5 + CSS3 portfolio engineered for zero-dependency deplo
 └── README.md    # Repository documentation
 ```
 
-## Deploying to GitHub Pages
-
-1. Push `index.html`, `styles.css`, `script.js`, and `README.md` to your GitHub repository (e.g. `Similur.github.io` or any project repository).
-2. In your repository on GitHub, navigate to **Settings → Pages**.
-3. Under **Build and deployment**, set **Source** to **Deploy from a branch**, select your `main` branch and `/ (root)` folder, and click **Save**.
 
