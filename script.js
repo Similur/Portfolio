@@ -257,7 +257,7 @@ document.addEventListener('click', function(event) {
 
     setTimeout(() => {
       if (nodeIngest) nodeIngest.classList.add('sim-active');
-      terminal.innerHTML += '<div class="code-font"><span class="text-accent-blue">[0.15s] Extract:</span> Polling REST API & file drops (100k rows)...</div>';
+      terminal.innerHTML += '<div class="code-font"><span class="text-accent-blue">[0.15s] Extract:</span> Polling REST API &amp; file drops (100k rows)...</div>';
     }, 350);
 
     setTimeout(() => {
@@ -269,13 +269,13 @@ document.addEventListener('click', function(event) {
     setTimeout(() => {
       if (nodeBronze) nodeBronze.classList.remove('sim-active');
       if (nodeTransform) nodeTransform.classList.add('sim-active');
-      terminal.innerHTML += '<div class="code-font"><span class="text-accent-blue">[0.75s] Silver Conformed:</span> SHA-256 row-hash CDC & idempotent PySpark merge...</div>';
+      terminal.innerHTML += '<div class="code-font"><span class="text-accent-blue">[0.75s] Silver Conformed:</span> SHA-256 row-hash CDC &amp; idempotent PySpark merge...</div>';
     }, 1850);
 
     setTimeout(() => {
       if (nodeTransform) nodeTransform.classList.remove('sim-active');
       if (nodeServe) nodeServe.classList.add('sim-active');
-      terminal.innerHTML += '<div class="code-font"><span class="text-accent-gold">[1.05s] Gold Analytics:</span> Z-Order OPTIMIZE & Power BI Direct Lake streaming...</div>';
+      terminal.innerHTML += '<div class="code-font"><span class="text-accent-gold">[1.05s] Gold Analytics:</span> Z-Order OPTIMIZE &amp; Power BI Direct Lake streaming...</div>';
     }, 2600);
 
     setTimeout(() => {
@@ -351,9 +351,10 @@ document.addEventListener('click', function(event) {
       }
       dialogEl.removeAttribute('open');
     }
+    return;
   }
 
-  // 6. COPY CODE FROM MODAL OR MAIN SNIPPET
+  // 6. COPY CODE FROM MODAL
   const copyModalBtn = event.target.closest('#dialog-copy-btn');
   if (copyModalBtn) {
     event.preventDefault();
@@ -363,10 +364,27 @@ document.addEventListener('click', function(event) {
       copyModalBtn.innerHTML = '<span class="material-symbols-outlined icon-sm">check</span> Copied!';
       setTimeout(() => { copyModalBtn.innerHTML = originalText; }, 2500);
     });
+    return;
+  }
+
+  // 7. COPY CODE FROM MAIN PYSPARK SECTION
+  const copyMainBtn = event.target.closest('#copy-code-btn');
+  if (copyMainBtn) {
+    event.preventDefault();
+    const mainCodeContent = document.getElementById('main-pyspark-code')?.textContent || '';
+    navigator.clipboard.writeText(mainCodeContent).then(() => {
+      const btnTextEl = document.getElementById('copy-btn-text');
+      if (btnTextEl) {
+        const prev = btnTextEl.textContent;
+        btnTextEl.textContent = 'Copied to Clipboard!';
+        setTimeout(() => { btnTextEl.textContent = prev; }, 2500);
+      }
+    });
+    return;
   }
 });
 
-// Setup dynamic year and mobile nav on load
+// Setup dynamic year, mobile nav, and recruiter contact form on load
 document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -374,9 +392,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');
   if (menu && nav) {
-    menu.onclick = function() {
+    menu.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       menu.setAttribute('aria-expanded', String(open));
-    };
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menu.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  const recruiterForm = document.getElementById('recruiter-form');
+  if (recruiterForm) {
+    recruiterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('recruiter-name')?.value.trim() || 'Hiring Team';
+      const company = document.getElementById('recruiter-company')?.value.trim() || 'Organization';
+      const role = document.getElementById('target-role')?.value || 'Data Engineer';
+      const model = document.getElementById('work-model')?.value || 'Remote / Hybrid';
+      const msg = document.getElementById('recruiter-msg')?.value.trim() || 'We would like to schedule an introductory conversation regarding our Data Engineering opening.';
+
+      const subject = encodeURIComponent(`Interview Inquiry: ${role} (${model}) - ${company}`);
+      const body = encodeURIComponent(
+        `Hi Dylan,\n\n` +
+        `${msg}\n\n` +
+        `--- Inquiry Details ---\n` +
+        `Recruiter / Hiring Manager: ${name}\n` +
+        `Organization: ${company}\n` +
+        `Target Role: ${role}\n` +
+        `Work Model: ${model}\n`
+      );
+
+      window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    });
   }
 });
+

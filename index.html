@@ -1,217 +1,1054 @@
-<!-- Inside <section class="section-base" id="case-studies">: Replace the project-grid with this -->
-<div class="case-studies-list project-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dylan Ferreira | Data Engineer & Data Platform Specialist</title>
+  <meta name="description" content="Portfolio of Dylan Ferreira - Data Engineer specializing in Azure Data Factory, Microsoft Fabric, PySpark, Delta Lake, and SQL Server." />
 
-  <!-- Project 01: Canvas Data 2 -->
-  <article class="case-card project-card" data-category="integration fabric">
-    <div class="case-header">
-      <div class="case-badge-group">
-        <span class="badge-solid badge-secondary-solid">PROJECT 01</span>
-        <span class="case-metric-highlight">49/49 TABLES SYNCED // ZERO LOSS</span>
-      </div>
-      <div class="case-tags">
-        <span>Microsoft Fabric</span>
-        <span>Python REST</span>
-        <span>Canvas LMS DAP</span>
-        <span>Delta Lake</span>
-      </div>
-    </div>
-    <h3 class="case-title">Canvas Data 2 Integration</h3>
-    <p class="case-subtitle">Automating daily academic records synchronization across 26 campus locations using Instructure DAP.</p>
-    <div class="case-card-actions">
-      <button class="btn-primary" data-project="canvas">
-        <span class="material-symbols-outlined icon-sm">visibility</span>
-        <span>Inspect Architecture & Code</span>
-      </button>
-    </div>
-  </article>
+  <!-- Fonts & Material Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 
-  <!-- Project 02: Automated Fabric Lakehouse -->
-  <article class="case-card project-card" data-category="fabric">
-    <div class="case-header">
-      <div class="case-badge-group">
-        <span class="badge-solid">PROJECT 02</span>
-        <span class="case-metric-highlight">95% SPEED CUT // 2H → 5M</span>
-      </div>
-      <div class="case-tags">
-        <span>Microsoft Fabric</span>
-        <span>PySpark</span>
-        <span>Delta Lake</span>
-        <span>OneLake</span>
-      </div>
-    </div>
-    <h3 class="case-title">Automated Fabric Lakehouse Pipeline</h3>
-    <p class="case-subtitle">Replaced manual multi-workbook daily imports with an automated, idempotent PySpark Lakehouse pipeline.</p>
-    <div class="case-card-actions">
-      <button class="btn-primary" data-project="fabric">
-        <span class="material-symbols-outlined icon-sm">visibility</span>
-        <span>Inspect Pipeline & Aggregations</span>
-      </button>
-    </div>
-  </article>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-  <!-- Project 03: CRM Lakehouse Ingestion -->
-  <article class="case-card project-card" data-category="fabric integration">
-    <div class="case-header">
-      <div class="case-badge-group">
-        <span class="badge-solid">PROJECT 03</span>
-        <span class="case-metric-highlight">ZERO LOCKS // IDEMPOTENT</span>
-      </div>
-      <div class="case-tags">
-        <span>Delta MERGE</span>
-        <span>REST APIs</span>
-        <span>PySpark</span>
-        <span>Z-Ordering</span>
-      </div>
-    </div>
-    <h3 class="case-title">CRM-to-Silver Lakehouse Ingestion</h3>
-    <p class="case-subtitle">Staged raw JSON extracts into Bronze Delta tables and executed idempotent merges into conformed Silver tables.</p>
-    <div class="case-card-actions">
-      <button class="btn-primary" data-project="crm">
-        <span class="material-symbols-outlined icon-sm">visibility</span>
-        <span>Inspect Delta MERGE Routine</span>
-      </button>
-    </div>
-  </article>
-
-  <!-- Project 04: Data Quality & Reconciliation -->
-  <article class="case-card project-card" data-category="ml-quality">
-    <div class="case-header">
-      <div class="case-badge-group">
-        <span class="badge-solid badge-teal-solid">PROJECT 04</span>
-        <span class="case-metric-highlight">ZERO DATA DISCREPANCIES</span>
-      </div>
-      <div class="case-tags">
-        <span>Data Quality</span>
-        <span>PySpark</span>
-        <span>Parity Testing</span>
-        <span>Regression Testing</span>
-      </div>
-    </div>
-    <h3 class="case-title">Automated Data Quality & Reconciliation</h3>
-    <p class="case-subtitle">Constructed test assertions verifying source-to-target row counts, null constraints, and key uniqueness.</p>
-    <div class="case-card-actions">
-      <button class="btn-primary" data-project="quality">
-        <span class="material-symbols-outlined icon-sm">visibility</span>
-        <span>Inspect Reconciliation Suite</span>
-      </button>
-    </div>
-  </article>
-
-  <!-- Project 05: Predictive Risk ML -->
-  <article class="case-card project-card" data-category="ml-quality">
-    <div class="case-header">
-      <div class="case-badge-group">
-        <span class="badge-solid badge-teal-solid">PROJECT 05</span>
-        <span class="case-metric-highlight">4 MODELS OPERATIONALIZED</span>
-      </div>
-      <div class="case-tags">
-        <span>Pecan AI</span>
-        <span>Feature Store</span>
-        <span>Predictive Analytics</span>
-        <span>Power BI</span>
-      </div>
-    </div>
-    <h3 class="case-title">Predictive Risk & Student Retention Models</h3>
-    <p class="case-subtitle">Built feature engineering pipelines feeding 4 machine learning models for early risk identification.</p>
-    <div class="case-card-actions">
-      <button class="btn-primary" data-project="ml">
-        <span class="material-symbols-outlined icon-sm">visibility</span>
-        <span>Inspect ML Feature Pipeline</span>
-      </button>
-    </div>
-  </article>
-
-  <!-- Project 06: Document Intelligence -->
-  <article class="case-card project-card" data-category="integration ml-quality">
-    <div class="case-header">
-      <div class="case-badge-group">
-        <span class="badge-solid badge-secondary-solid">PROJECT 06</span>
-        <span class="case-metric-highlight">UNSTRUCTURED → DELTA</span>
-      </div>
-      <div class="case-tags">
-        <span>Azure Doc Intel</span>
-        <span>NLP Sentiment</span>
-        <span>Python</span>
-        <span>Form Recognizer</span>
-      </div>
-    </div>
-    <h3 class="case-title">Survey Sentiment & Executive Intelligence</h3>
-    <p class="case-subtitle">Parsed qualitative feedback forms into structured Delta tables with automated sentiment scoring.</p>
-    <div class="case-card-actions">
-      <button class="btn-primary" data-project="docintel">
-        <span class="material-symbols-outlined icon-sm">visibility</span>
-        <span>Inspect Document OCR Routine</span>
-      </button>
-    </div>
-  </article>
-
-</div>
-
-<!-- Paste this Modal Element right before </main> -->
-<dialog id="project-dialog" class="project-modal">
-  <div class="modal-wrapper">
-    <div class="modal-header">
-      <div class="modal-header-text">
-        <span id="dialog-kicker" class="section-eyebrow">PROJECT DETAILS</span>
-        <h2 id="dialog-title">Project Title</h2>
-      </div>
-      <button id="dialog-close" class="btn-ghost icon-only" aria-label="Close dialog">
-        <span class="material-symbols-outlined">close</span>
-      </button>
-    </div>
-
-    <!-- Modal Tabs -->
-    <div class="dialog-tabs">
-      <button class="tab-btn active" data-tab="overview">
-        <span class="material-symbols-outlined icon-sm">description</span>
-        <span>Architecture Brief</span>
-      </button>
-      <button class="tab-btn" data-tab="code">
-        <span class="material-symbols-outlined icon-sm">code</span>
-        <span>PySpark / Production Code</span>
-      </button>
-    </div>
-
-    <!-- Tab 1: Architecture Brief -->
-    <div id="pane-overview" class="modal-body">
-      <p id="dialog-intro" class="modal-lead"></p>
-      
-      <div class="modal-deepdive">
-        <div class="deepdive-box">
-          <span class="step-title">The Challenge</span>
-          <p id="dialog-challenge"></p>
+  <!-- Top Navigation Bar -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-title">
+          <span class="brand-name">Dylan Ferreira</span>
+          <span class="status-badge">
+            <span class="status-dot"></span>
+            Open to Remote / Relocation
+          </span>
         </div>
-        <div class="deepdive-box">
-          <span class="step-title">Engineering Contribution</span>
-          <p id="dialog-contribution"></p>
+        <span class="brand-subtitle">Data Engineer // Azure &amp; Microsoft Fabric Specialist</span>
+      </div>
+
+      <button class="menu-toggle btn-ghost icon-only" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+
+      <nav class="nav-links" id="site-nav">
+        <a href="#overview">Overview</a>
+        <a href="#architecture">Architecture Flow</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#skills-matrix">Skills Matrix</a>
+        <a href="#experience">Experience</a>
+        <a href="#pyspark-code">PySpark Code</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn-ghost" href="https://github.com/Similur" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn-ghost" href="https://www.linkedin.com/in/dylanferreirais/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn-primary" href="#recruiter-inquiry">
+          <span>Get In Touch</span>
+          <span class="material-symbols-outlined icon-sm">terminal</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Top System Telemetry Bar -->
+    <div class="telemetry-bar" id="overview">
+      <div class="telemetry-container">
+        <div class="telemetry-left">
+          <span class="status-dot"></span>
+          <span class="telemetry-status">Active Candidacy Mode</span>
+          <span class="divider">|</span>
+          <span>Targeting: Data Engineer II • Azure / Fabric Data Engineer • Data Platform Engineer</span>
         </div>
-        <div class="deepdive-box highlight-step">
-          <span class="step-title text-accent-teal">Production Outcome</span>
-          <p id="dialog-outcome"></p>
+        <div class="telemetry-right">
+          <span>PST / EST Availability</span>
+          <span class="divider">•</span>
+          <a href="tel:5592054802">559-205-4802</a>
+          <span class="divider">•</span>
+          <a href="mailto:ferreira.dylan98@gmail.com">ferreira.dylan98@gmail.com</a>
         </div>
       </div>
-
-      <div class="disclosure-box">
-        <span class="material-symbols-outlined text-accent-teal icon-sm">verified_user</span>
-        <p id="dialog-disclosure"></p>
-      </div>
     </div>
 
-    <!-- Tab 2: Code Viewer -->
-    <div id="pane-code" class="modal-body" style="display: none;">
-      <div class="terminal-bar">
-        <div class="terminal-dots">
-          <span class="dot-red"></span>
-          <span class="dot-yellow"></span>
-          <span class="dot-green"></span>
-          <span class="terminal-filename">production_pattern_snippet.py</span>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="content-container">
+        <div class="hero-candidacy-row">
+          <div class="hero-badge">
+            <span class="status-dot"></span>
+            <span>Active Candidacy: California, USA (Open to Remote / Relocation)</span>
+          </div>
+          <div class="cert-chips">
+            <span class="chip-badge chip-primary">DP-900</span>
+            <span class="chip-label">Azure Data Fundamentals</span>
+            <span class="divider">•</span>
+            <span class="chip-badge chip-secondary">AZ-900</span>
+            <span class="chip-label">Azure Fundamentals</span>
+          </div>
         </div>
-        <button class="btn-ghost" id="dialog-copy-btn">
-          <span class="material-symbols-outlined icon-sm">content_copy</span>
-          <span>Copy Snippet</span>
-        </button>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 class="hero-headline">
+              Architecting resilient <span class="text-accent-blue">Medallion Lakehouses</span> &amp; high-throughput <span class="text-accent-teal">PySpark pipelines</span> on Microsoft Fabric &amp; Azure.
+            </h1>
+            <p class="hero-subtext">
+              Performance-driven Data Engineer with 7+ years of IT background and nearly 5 years designing, optimizing, and maintaining enterprise data platforms and integration pipelines. Proven track record cutting ingestion runtimes from 2+ hours down to 5 minutes using Microsoft Fabric, Azure Data Factory, PySpark, and Delta Lake across 26 distributed campus operations.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="#case-studies">
+                <span>View Production Case Studies</span>
+                <span class="material-symbols-outlined icon-sm">arrow_downward</span>
+              </a>
+              <a class="btn-secondary" href="https://github.com/Similur" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined icon-sm text-accent-blue">deployed_code</span>
+                <span>GitHub: Similur</span>
+              </a>
+              <a class="btn-secondary" href="https://www.linkedin.com/in/dylanferreirais/" target="_blank" rel="noopener noreferrer">
+                <span class="material-symbols-outlined icon-sm text-accent-teal">badge</span>
+                <span>LinkedIn Profile</span>
+              </a>
+              <a class="btn-secondary" href="#recruiter-inquiry">
+                <span class="material-symbols-outlined icon-sm">send</span>
+                <span>Direct Inquiry</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="card-header">
+              <span class="card-title text-accent-blue">
+                <span class="material-symbols-outlined icon-sm">terminal</span> SYSTEM TELEMETRY
+              </span>
+              <span class="badge-online">
+                <span class="status-dot"></span> ONLINE
+              </span>
+            </div>
+            <div class="telemetry-grid">
+              <div class="telemetry-item">
+                <span class="telemetry-label">ENGINE</span>
+                <span class="telemetry-value">Fabric / Spark 3.4</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">STORAGE</span>
+                <span class="telemetry-value">ADLS Gen2 / Delta</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">CADENCE</span>
+                <span class="telemetry-value">Automated Daily</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">REGION</span>
+                <span class="telemetry-value">US West (California)</span>
+              </div>
+            </div>
+            <div class="stack-tags">
+              <span>Microsoft Fabric</span>
+              <span>Azure Data Factory</span>
+              <span>PySpark</span>
+              <span>Delta Lake</span>
+              <span>SQL Server</span>
+              <span>Azure SQL</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <pre class="modal-code-block"><code id="dialog-code"></code></pre>
+    </section>
+
+    <!-- Verified Impact Metrics -->
+    <section class="metrics-section">
+      <div class="content-container">
+        <div class="section-header-compact">
+          <div class="header-with-icon">
+            <span class="material-symbols-outlined text-accent-blue">speed</span>
+            <h2>Verified Enterprise Impact</h2>
+          </div>
+          <span class="code-tag">ENGINEERING_AUDIT // 2022-2026</span>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-label">INGESTION LATENCY</span>
+              <span class="material-symbols-outlined text-accent-blue">bolt</span>
+            </div>
+            <div class="metric-stat">95%</div>
+            <div class="metric-name">Runtime Reduction</div>
+            <p class="metric-desc">
+              Accelerated 30+ CRM vendor ingestion routines from 2+ hours down to 5 minutes using PySpark in Microsoft Fabric.
+            </p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-label">ENTERPRISE SCALE</span>
+              <span class="material-symbols-outlined text-accent-blue">account_balance</span>
+            </div>
+            <div class="metric-stat">26</div>
+            <div class="metric-name">Campus Operations</div>
+            <p class="metric-desc">
+              Centralized reporting pipelines loading Delta tables with hundreds of thousands of institutional records per run.
+            </p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-label">LMS INTEGRATION</span>
+              <span class="material-symbols-outlined text-accent-blue">schema</span>
+            </div>
+            <div class="metric-stat">49</div>
+            <div class="metric-name">Synced Relational Tables</div>
+            <p class="metric-desc">
+              Engineered daily automated Canvas LMS sync pipeline handling REST pagination, rate limiting, and row reconciliation.
+            </p>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-top">
+              <span class="metric-label">ANALYTICAL LATENCY</span>
+              <span class="material-symbols-outlined text-accent-blue">timer</span>
+            </div>
+            <div class="metric-stat">&lt; 1s</div>
+            <div class="metric-name">Query Response Time</div>
+            <p class="metric-desc">
+              Optimized execution plans, indexing strategies, and joins—slashing legacy query bottlenecks from 60+ seconds to sub-second runtimes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Topology + Live Simulator -->
+    <section class="section-dark" id="architecture">
+      <div class="content-container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">DATA PLATFORM SPECIFICATION</span>
+            <h2>Production Medallion Lakehouse Topology</h2>
+          </div>
+          <span class="code-tag">FABRIC LAKEHOUSE // ADLS GEN2 BACKBONE // DELTA LAKE</span>
+        </div>
+
+        <div class="topology-container">
+          <div class="topology-grid">
+            <div class="topology-column" id="sim-node-ingest">
+              <div class="column-header">
+                <span class="col-title">
+                  <span class="material-symbols-outlined text-accent-blue icon-sm">input</span>
+                  01. Ingestion Sources
+                </span>
+                <span class="col-mode">EXTRACT</span>
+              </div>
+              <div class="col-cards">
+                <div class="col-card"><span>30+ CRM Vendors</span><span class="text-accent-teal">REST / JSON</span></div>
+                <div class="col-card"><span>Canvas LMS (49 Tables)</span><span class="text-accent-blue">Data 2 API</span></div>
+                <div class="col-card"><span>Campus OLTP Databases</span><span class="text-accent-blue">SQL Server / CDC</span></div>
+                <div class="col-card"><span>Institutional Forms</span><span class="text-muted">Doc Intel OCR</span></div>
+              </div>
+              <div class="col-footer">Transport: ADF Copy Activities, Fabric Pipelines, Python Orchestrators</div>
+            </div>
+
+            <div class="topology-column" id="sim-node-bronze">
+              <div class="column-header">
+                <span class="col-title">
+                  <span class="dot-bronze"></span>
+                  02. Bronze Lakehouse
+                </span>
+                <span class="col-mode text-accent-teal">RAW STAGE</span>
+              </div>
+              <div class="col-cards">
+                <div class="col-card">
+                  <div class="card-bold text-accent-blue">Append-Only Delta</div>
+                  <div class="card-caption">Raw historical snapshots preserved</div>
+                </div>
+                <div class="col-card">
+                  <div class="card-bold">Schema Drift Isolation</div>
+                  <div class="card-caption">Resilient ingestion without pipeline crashes</div>
+                </div>
+                <div class="col-card">
+                  <div class="card-bold text-accent-teal">Audit Envelope Injected</div>
+                  <div class="card-caption code-font">_ingest_ts, _source_file, _batch_id</div>
+                </div>
+              </div>
+              <div class="col-footer">Storage: ADLS Gen2 Hierarchical Namespace, Daily Partitions</div>
+            </div>
+
+            <div class="topology-column active-border" id="sim-node-transform">
+              <div class="column-header">
+                <span class="col-title">
+                  <span class="dot-silver"></span>
+                  03. Silver Conformed
+                </span>
+                <span class="col-mode text-accent-blue">PYSPARK MERGE</span>
+              </div>
+              <div class="col-cards">
+                <div class="col-card">
+                  <div class="card-bold text-accent-blue">SHA-256 Row-Hash CDC</div>
+                  <div class="card-caption">Eliminates false updates across bulk rows</div>
+                </div>
+                <div class="col-card">
+                  <div class="card-bold">Schema Harmonization</div>
+                  <div class="card-caption">Type coercion, null sanitization, business keys</div>
+                </div>
+                <div class="col-card">
+                  <div class="card-bold text-accent-teal">Automated Reconciler</div>
+                  <div class="card-caption">Pre- and post-merge parity verification</div>
+                </div>
+              </div>
+              <div class="col-footer">Engine: PySpark 3.4 Notebooks on Fabric Spark Runtime</div>
+            </div>
+
+            <div class="topology-column" id="sim-node-serve">
+              <div class="column-header">
+                <span class="col-title">
+                  <span class="dot-gold"></span>
+                  04. Gold Analytics
+                </span>
+                <span class="col-mode text-accent-gold">SERVING</span>
+              </div>
+              <div class="col-cards">
+                <div class="col-card">
+                  <div class="card-bold text-accent-blue">Direct Lake Power BI</div>
+                  <div class="card-caption">Zero-copy query streaming over Delta files</div>
+                </div>
+                <div class="col-card">
+                  <div class="card-bold">Kimball Star Schemas</div>
+                  <div class="card-caption">Dimensional models &amp; aggregate tables</div>
+                </div>
+                <div class="col-card">
+                  <div class="card-bold text-accent-teal">Pecan AI Predictive Scores</div>
+                  <div class="card-caption">4 ML models: Student retention &amp; risk scoring</div>
+                </div>
+              </div>
+              <div class="col-footer">Consumer: Campus leadership, institutional analysts, executive dashboards</div>
+            </div>
+          </div>
+
+          <!-- Interactive Live Pipeline Simulator -->
+          <div class="sim-wrapper">
+            <div class="sim-header">
+              <div class="sim-header-title">
+                <span class="material-symbols-outlined text-accent-teal icon-sm">sync_alt</span>
+                <span>Interactive Pipeline Runtime Simulator</span>
+              </div>
+              <button class="btn-primary" id="run-sim-btn" type="button">
+                <span class="material-symbols-outlined icon-sm">play_arrow</span>
+                <span>Simulate Delta Lake Ingestion</span>
+              </button>
+            </div>
+            <div class="sim-terminal" id="sim-terminal">
+              <div class="code-font text-muted"># Pipeline idle. Click 'Simulate Delta Lake Ingestion' to trigger interactive execution.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies with Filter Pills & Modal Triggers -->
+    <section class="section-base" id="case-studies">
+      <div class="content-container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">PRODUCTION DELIVERABLES</span>
+            <h2>Enterprise Case Studies &amp; Architecture Work</h2>
+          </div>
+          <span class="code-tag">SELECT ANY CARD FOR FULL ARCHITECTURE &amp; CODE</span>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all" type="button">All Projects (6)</button>
+          <button class="filter-btn" data-filter="fabric" type="button">Fabric &amp; PySpark</button>
+          <button class="filter-btn" data-filter="integration" type="button">Integrations &amp; APIs</button>
+          <button class="filter-btn" data-filter="ml-quality" type="button">ML &amp; Data Quality</button>
+        </div>
+
+        <div class="case-studies-list project-grid">
+          <!-- Project 01: Canvas Data 2 -->
+          <article class="case-card project-card" data-category="integration fabric">
+            <div class="case-header">
+              <div class="case-badge-group">
+                <span class="badge-solid badge-secondary-solid">PROJECT 01</span>
+                <span class="case-metric-highlight">49/49 TABLES SYNCED // ZERO LOSS</span>
+              </div>
+              <div class="case-tags">
+                <span>Microsoft Fabric</span>
+                <span>Python REST</span>
+                <span>Canvas LMS DAP</span>
+                <span>Delta Lake</span>
+              </div>
+            </div>
+            <h3 class="case-title">Canvas Data 2 Integration</h3>
+            <p class="case-subtitle">Automating daily academic records synchronization across 26 campus locations using Instructure DAP.</p>
+            <div class="case-card-actions">
+              <button class="btn-primary" data-project="canvas" type="button">
+                <span class="material-symbols-outlined icon-sm">visibility</span>
+                <span>Inspect Architecture &amp; Code</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 02: Automated Fabric Lakehouse -->
+          <article class="case-card project-card" data-category="fabric">
+            <div class="case-header">
+              <div class="case-badge-group">
+                <span class="badge-solid">PROJECT 02</span>
+                <span class="case-metric-highlight">95% SPEED CUT // 2H → 5M</span>
+              </div>
+              <div class="case-tags">
+                <span>Microsoft Fabric</span>
+                <span>PySpark</span>
+                <span>Delta Lake</span>
+                <span>OneLake</span>
+              </div>
+            </div>
+            <h3 class="case-title">Automated Fabric Lakehouse Pipeline</h3>
+            <p class="case-subtitle">Replaced manual multi-workbook daily imports with an automated, idempotent PySpark Lakehouse pipeline.</p>
+            <div class="case-card-actions">
+              <button class="btn-primary" data-project="fabric" type="button">
+                <span class="material-symbols-outlined icon-sm">visibility</span>
+                <span>Inspect Pipeline &amp; Aggregations</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 03: CRM Lakehouse Ingestion -->
+          <article class="case-card project-card" data-category="fabric integration">
+            <div class="case-header">
+              <div class="case-badge-group">
+                <span class="badge-solid">PROJECT 03</span>
+                <span class="case-metric-highlight">ZERO LOCKS // IDEMPOTENT</span>
+              </div>
+              <div class="case-tags">
+                <span>Delta MERGE</span>
+                <span>REST APIs</span>
+                <span>PySpark</span>
+                <span>Z-Ordering</span>
+              </div>
+            </div>
+            <h3 class="case-title">CRM-to-Silver Lakehouse Ingestion</h3>
+            <p class="case-subtitle">Staged raw JSON extracts into Bronze Delta tables and executed idempotent merges into conformed Silver tables.</p>
+            <div class="case-card-actions">
+              <button class="btn-primary" data-project="crm" type="button">
+                <span class="material-symbols-outlined icon-sm">visibility</span>
+                <span>Inspect Delta MERGE Routine</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 04: Data Quality & Reconciliation -->
+          <article class="case-card project-card" data-category="ml-quality">
+            <div class="case-header">
+              <div class="case-badge-group">
+                <span class="badge-solid badge-teal-solid">PROJECT 04</span>
+                <span class="case-metric-highlight">ZERO DATA DISCREPANCIES</span>
+              </div>
+              <div class="case-tags">
+                <span>Data Quality</span>
+                <span>PySpark</span>
+                <span>Parity Testing</span>
+                <span>Regression Testing</span>
+              </div>
+            </div>
+            <h3 class="case-title">Automated Data Quality &amp; Reconciliation</h3>
+            <p class="case-subtitle">Constructed test assertions verifying source-to-target row counts, null constraints, and key uniqueness.</p>
+            <div class="case-card-actions">
+              <button class="btn-primary" data-project="quality" type="button">
+                <span class="material-symbols-outlined icon-sm">visibility</span>
+                <span>Inspect Reconciliation Suite</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 05: Predictive Risk ML -->
+          <article class="case-card project-card" data-category="ml-quality">
+            <div class="case-header">
+              <div class="case-badge-group">
+                <span class="badge-solid badge-teal-solid">PROJECT 05</span>
+                <span class="case-metric-highlight">4 MODELS OPERATIONALIZED</span>
+              </div>
+              <div class="case-tags">
+                <span>Pecan AI</span>
+                <span>Feature Store</span>
+                <span>Predictive Analytics</span>
+                <span>Power BI</span>
+              </div>
+            </div>
+            <h3 class="case-title">Predictive Risk &amp; Student Retention Models</h3>
+            <p class="case-subtitle">Built feature engineering pipelines feeding 4 machine learning models for early risk identification.</p>
+            <div class="case-card-actions">
+              <button class="btn-primary" data-project="ml" type="button">
+                <span class="material-symbols-outlined icon-sm">visibility</span>
+                <span>Inspect ML Feature Pipeline</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 06: Document Intelligence -->
+          <article class="case-card project-card" data-category="integration ml-quality">
+            <div class="case-header">
+              <div class="case-badge-group">
+                <span class="badge-solid badge-secondary-solid">PROJECT 06</span>
+                <span class="case-metric-highlight">UNSTRUCTURED → DELTA</span>
+              </div>
+              <div class="case-tags">
+                <span>Azure Doc Intel</span>
+                <span>NLP Sentiment</span>
+                <span>Python</span>
+                <span>Form Recognizer</span>
+              </div>
+            </div>
+            <h3 class="case-title">Survey Sentiment &amp; Executive Intelligence</h3>
+            <p class="case-subtitle">Parsed qualitative feedback forms into structured Delta tables with automated sentiment scoring.</p>
+            <div class="case-card-actions">
+              <button class="btn-primary" data-project="docintel" type="button">
+                <span class="material-symbols-outlined icon-sm">visibility</span>
+                <span>Inspect Document OCR Routine</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Element Container -->
+    <dialog id="project-dialog" class="project-modal">
+      <div class="modal-wrapper">
+        <div class="modal-header">
+          <div class="modal-header-text">
+            <span id="dialog-kicker" class="section-eyebrow">PROJECT DETAILS</span>
+            <h2 id="dialog-title">Project Title</h2>
+          </div>
+          <button id="dialog-close" class="btn-ghost icon-only" type="button" aria-label="Close dialog">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+
+        <!-- Modal Tabs -->
+        <div class="dialog-tabs">
+          <button class="tab-btn active" data-tab="overview" type="button">
+            <span class="material-symbols-outlined icon-sm">description</span>
+            <span>Architecture Brief</span>
+          </button>
+          <button class="tab-btn" data-tab="code" type="button">
+            <span class="material-symbols-outlined icon-sm">code</span>
+            <span>PySpark / Production Code</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Architecture Brief -->
+        <div id="pane-overview" class="modal-body">
+          <p id="dialog-intro" class="modal-lead"></p>
+          
+          <div class="modal-deepdive">
+            <div class="deepdive-box">
+              <span class="step-title">The Challenge</span>
+              <p id="dialog-challenge"></p>
+            </div>
+            <div class="deepdive-box">
+              <span class="step-title">Engineering Contribution</span>
+              <p id="dialog-contribution"></p>
+            </div>
+            <div class="deepdive-box highlight-step">
+              <span class="step-title text-accent-teal">Production Outcome</span>
+              <p id="dialog-outcome"></p>
+            </div>
+          </div>
+
+          <div class="disclosure-box">
+            <span class="material-symbols-outlined text-accent-teal icon-sm">verified_user</span>
+            <p id="dialog-disclosure"></p>
+          </div>
+        </div>
+
+        <!-- Tab 2: Code Viewer -->
+        <div id="pane-code" class="modal-body" style="display: none;">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+              <span class="terminal-filename">production_pattern_snippet.py</span>
+            </div>
+            <button class="btn-ghost" id="dialog-copy-btn" type="button">
+              <span class="material-symbols-outlined icon-sm">content_copy</span>
+              <span>Copy Snippet</span>
+            </button>
+          </div>
+          <pre class="modal-code-block"><code id="dialog-code"></code></pre>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Skills Matrix -->
+    <section class="section-dark" id="skills-matrix">
+      <div class="content-container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">RECRUITER &amp; ATS KEYWORD REPOSITORY</span>
+            <h2>Core Competencies &amp; Technical Stack</h2>
+          </div>
+          <span class="code-tag">VERIFIED PRODUCTION STACK</span>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skills-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined text-accent-blue">cloud</span>
+              <h3>Cloud &amp; Platforms</h3>
+            </div>
+            <ul class="skill-list">
+              <li><span>Microsoft Fabric</span><span class="code-tag">Lakehouse</span></li>
+              <li><span>Azure Data Factory (ADF)</span><span class="code-tag">Pipelines</span></li>
+              <li><span>Azure Data Lake (ADLS Gen2)</span><span class="code-tag">Storage</span></li>
+              <li><span>Delta Lake 3.0</span><span class="code-tag">ACID Tables</span></li>
+              <li><span>SQL Server &amp; Azure SQL</span><span class="code-tag">OLTP</span></li>
+              <li><span>PostgreSQL</span><span class="code-tag">Relational</span></li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined text-accent-blue">code</span>
+              <h3>Languages &amp; Scripting</h3>
+            </div>
+            <ul class="skill-list">
+              <li><span>Python</span><span class="code-tag">Primary</span></li>
+              <li><span>PySpark</span><span class="code-tag">Distributed</span></li>
+              <li><span>SQL / T-SQL</span><span class="code-tag">Tuning / SPs</span></li>
+              <li><span>Spark SQL</span><span class="code-tag">Vectorized</span></li>
+              <li><span>PowerShell</span><span class="code-tag">Automation</span></li>
+              <li><span>DAX &amp; Power Query M</span><span class="code-tag">Power BI</span></li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined text-accent-blue">architecture</span>
+              <h3>Engineering Architecture</h3>
+            </div>
+            <ul class="skill-list">
+              <li><span>Medallion Architecture</span><span class="code-tag">Bronze/Silver/Gold</span></li>
+              <li><span>ETL &amp; ELT Pipelines</span><span class="code-tag">Batch</span></li>
+              <li><span>Change Data Capture (CDC)</span><span class="code-tag">Incremental</span></li>
+              <li><span>Delta Table Merges</span><span class="code-tag">Idempotent</span></li>
+              <li><span>Star Schema Modeling</span><span class="code-tag">Kimball</span></li>
+              <li><span>Performance Tuning</span><span class="code-tag">Execution Plans</span></li>
+            </ul>
+          </div>
+
+          <div class="skills-card">
+            <div class="card-header">
+              <span class="material-symbols-outlined text-accent-blue">integration_instructions</span>
+              <h3>Integration &amp; Security</h3>
+            </div>
+            <ul class="skill-list">
+              <li><span>REST API Orchestration</span><span class="code-tag">Rate-Limits</span></li>
+              <li><span>Parquet, JSON, Avro, CSV</span><span class="code-tag">Encodings</span></li>
+              <li><span>Azure Key Vault</span><span class="code-tag">RBAC Secrets</span></li>
+              <li><span>Power BI Direct Lake</span><span class="code-tag">Semantic Models</span></li>
+              <li><span>SQLAlchemy &amp; pyodbc</span><span class="code-tag">Drivers</span></li>
+              <li><span>Git &amp; GitHub</span><span class="code-tag">Version Control</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="section-base" id="experience">
+      <div class="content-container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">CHRONOLOGICAL PRODUCTION RECORD</span>
+            <h2>Professional Experience &amp; Credentials</h2>
+          </div>
+          <span class="code-tag">7+ YEARS ENTERPRISE IT // 5 YEARS DATA PLATFORMS</span>
+        </div>
+
+        <div class="experience-grid">
+          <!-- Main Roles -->
+          <div class="timeline-container">
+            <!-- Role 1 -->
+            <div class="job-card active-card">
+              <div class="job-top">
+                <div>
+                  <div class="job-title-row">
+                    <h3>Database Administrator &amp; Data Engineer</h3>
+                    <span class="role-badge">Jan 2022 – Sep 2026</span>
+                  </div>
+                  <div class="job-company">San Joaquin Valley College • Visalia, CA (Hybrid)</div>
+                </div>
+              </div>
+              <ul class="job-bullets">
+                <li><strong>Architected, modernized, and maintained</strong> the organization’s Microsoft Fabric Lakehouse and data platform infrastructure, decoupling analytical reporting from production OLTP systems across <strong>26 campus operations</strong>.</li>
+                <li><strong>Built end-to-end ELT/ETL pipelines</strong> utilizing Microsoft Fabric, Azure Data Factory, PySpark, and Delta Lake—migrating <strong>30+ CRM vendor ingestion routines</strong> and slashing daily pipeline runtimes by <strong>95% (from 2+ hours to 5 minutes)</strong>.</li>
+                <li><strong>Engineered a robust, automated daily pipeline</strong> for Canvas LMS Data 2 extracting and harmonizing <strong>49 relational tables</strong>, with reconciliation scripts validating entity completeness against upstream API rate limits.</li>
+                <li><strong>Designed and deployed conformed Medallion Lakehouses</strong> (Bronze/Silver/Gold) on ADLS Gen2, enforcing schema drift isolation, SHA-256 row-hash change detection, and idempotent Delta table merges.</li>
+                <li><strong>Authored complex SQL queries, views, stored procedures, and PySpark transformations</strong>; optimized execution plans, indexes, joins, and partition schemes to improve analytical query response times from <strong>60+ seconds to &lt; 1 second</strong>.</li>
+                <li><strong>Built an automated pipeline data reconciler</strong> to perform regression validation, ensuring modern Fabric pipeline outputs exactly matched legacy flat files with <strong>zero data discrepancies</strong> before production cutover.</li>
+                <li><strong>Managed credential security</strong> via Azure Key Vault; developed automated ingestion pipelines for unstructured campus documents using Azure Document Intelligence; operationalized data feeds for <strong>4 predictive ML models</strong> in Pecan AI for student retention.</li>
+              </ul>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="job-card">
+              <div class="job-top">
+                <div>
+                  <div class="job-title-row">
+                    <h3>Help Desk Specialist, Tier 1</h3>
+                    <span class="role-badge">Sep 2019 – Dec 2021</span>
+                  </div>
+                  <div class="job-company">San Joaquin Valley College • Visalia, CA</div>
+                </div>
+              </div>
+              <ul class="job-bullets">
+                <li>Delivered Tier-1 systems, network, and database access support across 26 campus locations, resolving account access, system availability, and connectivity tickets.</li>
+                <li>Administered Role-Based Access Controls (RBAC) across Active Directory, Azure AD, and institutional applications.</li>
+                <li>Automated workstation setup routines and account audits using PowerShell scripts.</li>
+              </ul>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="job-card compact-card">
+              <div class="job-title-row">
+                <h3>IT Field Technician &amp; Computer Hardware Specialist</h3>
+                <span class="role-badge">Jan 2018 – Sep 2019</span>
+              </div>
+              <div class="job-company">MTI &amp; Ferreira PC Repair • Central Valley, CA</div>
+              <p class="compact-desc">Deployed, diagnosed, and repaired enterprise IT hardware, operating systems, and local networking equipment across distributed client environments.</p>
+            </div>
+          </div>
+
+          <!-- Sidebar: Education & Certs -->
+          <div class="experience-sidebar">
+            <div class="sidebar-card">
+              <div class="card-header">
+                <span class="material-symbols-outlined text-accent-blue">verified</span>
+                <h3>Official Certifications</h3>
+              </div>
+              <div class="cert-item">
+                <span class="material-symbols-outlined text-accent-blue icon-md">workspace_premium</span>
+                <div>
+                  <strong>Microsoft Certified: Azure Data Fundamentals</strong>
+                  <div class="code-font text-accent-blue">DP-900 • Verified</div>
+                </div>
+              </div>
+              <div class="cert-item">
+                <span class="material-symbols-outlined text-accent-teal icon-md">workspace_premium</span>
+                <div>
+                  <strong>Microsoft Certified: Azure Fundamentals</strong>
+                  <div class="code-font text-accent-teal">AZ-900 • Verified</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <div class="card-header">
+                <span class="material-symbols-outlined text-accent-blue">school</span>
+                <h3>Formal Education</h3>
+              </div>
+              <div class="edu-item">
+                <strong>Associate of Science in Information Technology</strong>
+                <div class="edu-institution">San Joaquin Valley College</div>
+                <div class="code-font text-muted">2017 – 2018 • Visalia, CA</div>
+              </div>
+            </div>
+
+            <div class="sidebar-card highlight-sidebar">
+              <div class="card-header">
+                <span class="material-symbols-outlined text-accent-teal">description</span>
+                <h3>Candidate Resume</h3>
+              </div>
+              <p class="sidebar-desc">Download tailored ATS-formatted resumes for Data Engineer or DBA / Data Platform openings.</p>
+              <div class="sidebar-actions">
+                <a class="btn-primary full-width" href="mailto:ferreira.dylan98@gmail.com?subject=Request%20Dylan%20Ferreira%20Resume%20PDF&body=Hi%20Dylan,%20I%20would%20like%20to%20review%20your%20full%20Data%20Engineer%20Resume%20PDF.">
+                  <span class="material-symbols-outlined icon-sm">picture_as_pdf</span>
+                  <span>Request Resume PDF</span>
+                </a>
+                <a class="btn-secondary full-width" href="https://www.linkedin.com/in/dylanferreirais/" target="_blank" rel="noopener noreferrer">
+                  <span class="material-symbols-outlined icon-sm text-accent-blue">link</span>
+                  <span>Connect on LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded PySpark Code Viewer -->
+    <section class="section-dark" id="pyspark-code">
+      <div class="content-container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">PRODUCTION CODE REPOSITORY</span>
+            <h2>Idempotent Delta Merge Pattern</h2>
+          </div>
+          <div class="code-header-actions">
+            <button class="btn-ghost" id="copy-code-btn" type="button">
+              <span class="material-symbols-outlined icon-sm">content_copy</span>
+              <span id="copy-btn-text">Copy PySpark Snippet</span>
+            </button>
+            <a class="btn-ghost" href="https://github.com/Similur" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined icon-sm">open_in_new</span>
+              <span>View GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+              <span class="terminal-filename">/pipelines/silver_delta_conformed_merge.py</span>
+            </div>
+            <span class="code-font text-muted">PySpark 3.4 • Delta Lake 3.0</span>
+          </div>
+
+          <div class="terminal-code">
+            <pre><code id="main-pyspark-code"><span class="token-comment"># ==============================================================================
+# Dylan Ferreira - Enterprise Production Delta Lake Ingestion Routine
+# Pattern: Medallion Architecture Bronze -> Silver Conformed Merge
+# Invariants: Idempotent merge, SHA-256 change detection, Zero duplicate rows
+# ==============================================================================</span>
+
+<span class="token-keyword">from</span> pyspark.sql <span class="token-keyword">import</span> functions <span class="token-keyword">as</span> F
+<span class="token-keyword">from</span> delta.tables <span class="token-keyword">import</span> DeltaTable
+
+<span class="token-keyword">def</span> <span class="token-function">execute_silver_conformed_merge</span>(
+    spark_session,
+    bronze_df, 
+    silver_table_path: <span class="token-type">str</span>, 
+    primary_keys: <span class="token-type">list</span>, 
+    exclude_hash_cols: <span class="token-type">list</span>
+):
+    <span class="token-comment"># 1. Compute deterministic SHA-256 row hash for high-throughput CDC</span>
+    hash_columns = [
+        F.coalesce(F.col(c).cast(<span class="token-string">"string"</span>), F.lit(<span class="token-string">"__NULL_TOKEN__"</span>))
+        <span class="token-keyword">for</span> c <span class="token-keyword">in</span> bronze_df.columns 
+        <span class="token-keyword">if</span> c <span class="token-keyword">not in</span> exclude_hash_cols
+    ]
+    
+    staged_updates_df = (
+        bronze_df
+        .withColumn(<span class="token-string">"_row_hash_sha256"</span>, F.sha2(F.concat_ws(<span class="token-string">"||"</span>, *hash_columns), <span class="token-number">256</span>))
+        .withColumn(<span class="token-string">"_silver_conformed_ts"</span>, F.current_timestamp())
+    )
+
+    <span class="token-comment"># 2. Bind conformed target Delta table instance</span>
+    target_silver_table = DeltaTable.forPath(spark_session, silver_table_path)
+    
+    <span class="token-comment"># 3. Build compound primary key join predicate</span>
+    merge_condition = <span class="token-string">" AND "</span>.join([
+        <span class="token-string">f"target.{k} = source.{k}"</span> <span class="token-keyword">for</span> k <span class="token-keyword">in</span> primary_keys
+    ])
+    
+    <span class="token-comment"># 4. Execute atomic Delta Merge: update ONLY on detected byte-level divergence</span>
+    (
+        target_silver_table.alias(<span class="token-string">"target"</span>)
+        .merge(
+            source=staged_updates_df.alias(<span class="token-string">"source"</span>),
+            condition=merge_condition
+        )
+        .whenMatchedUpdate(
+            condition=<span class="token-string">"target._row_hash_sha256 != source._row_hash_sha256"</span>,
+            set={<span class="token-string">"*"</span>: <span class="token-string">"source.*"</span>}
+        )
+        .whenNotMatchedInsertAll()
+        .execute()
+    )
+
+    <span class="token-comment"># 5. Delta maintenance &amp; Z-Order clustering for sub-second analytical scans</span>
+    spark_session.sql(<span class="token-string">f"OPTIMIZE delta.`{silver_table_path}` ZORDER BY ({','.join(primary_keys)})"</span>)
+    <span class="token-keyword">return</span> <span class="token-keyword">True</span></code></pre>
+          </div>
+
+          <div class="terminal-footer">
+            <span>Engineered to eliminate false updates across 26 campus workloads</span>
+            <span class="text-accent-teal">ZERO MERGE LOCKS // 100% IDEMPOTENT</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recruiter Direct Contact Section -->
+    <section class="section-base" id="recruiter-inquiry">
+      <div class="content-container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">HIRING TEAM DIRECT CHANNEL</span>
+            <h2>Initiate Interview / Technical Screen</h2>
+          </div>
+          <span class="code-tag">RESPONSE WITHIN 24 HOURS</span>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Direct Links Card -->
+          <div class="contact-info-card">
+            <h3>Verified Direct Contact</h3>
+            <div class="contact-links-list">
+              <div class="contact-item">
+                <span class="material-symbols-outlined text-accent-blue icon-md">mail</span>
+                <div>
+                  <span class="contact-label">PRIMARY RECRUITER EMAIL</span>
+                  <a class="contact-val" href="mailto:ferreira.dylan98@gmail.com">ferreira.dylan98@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="material-symbols-outlined text-accent-blue icon-md">call</span>
+                <div>
+                  <span class="contact-label">DIRECT PHONE / MOBILE</span>
+                  <a class="contact-val" href="tel:5592054802">(559) 205-4802</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="material-symbols-outlined text-accent-blue icon-md">badge</span>
+                <div>
+                  <span class="contact-label">LINKEDIN PROFILE</span>
+                  <a class="contact-val" href="https://www.linkedin.com/in/dylanferreirais/" target="_blank" rel="noopener noreferrer">linkedin.com/in/dylanferreirais/</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span class="material-symbols-outlined text-accent-blue icon-md">deployed_code</span>
+                <div>
+                  <span class="contact-label">GITHUB REPOSITORIES</span>
+                  <a class="contact-val" href="https://github.com/Similur" target="_blank" rel="noopener noreferrer">github.com/Similur</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="matched-roles-box">
+              <span class="text-accent-teal">Target Roles Matched:</span>
+              <div class="role-tags">
+                <span>Data Engineer II</span>
+                <span>Azure Data Engineer</span>
+                <span>Microsoft Fabric Data Engineer</span>
+                <span>Data Platform Engineer</span>
+                <span>Database Administrator II</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Mailto Form -->
+          <div class="contact-form-card">
+            <div class="form-header">
+              <h3>Recruiter Quick Outreach</h3>
+              <span class="code-font text-accent-teal">FAST-PATH ROUTING</span>
+            </div>
+
+            <form id="recruiter-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="recruiter-name">Your Name &amp; Title</label>
+                  <input type="text" id="recruiter-name" placeholder="e.g. Sarah Jenkins (Lead Tech Recruiter)" required />
+                </div>
+                <div class="form-group">
+                  <label for="recruiter-company">Organization</label>
+                  <input type="text" id="recruiter-company" placeholder="e.g. Enterprise Cloud Systems" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="target-role">Role Scope</label>
+                  <select id="target-role">
+                    <option value="Data Engineer II">Data Engineer II (Azure / Fabric)</option>
+                    <option value="Azure Data Engineer">Azure Data Engineer</option>
+                    <option value="Microsoft Fabric Data Engineer">Microsoft Fabric Data Engineer</option>
+                    <option value="Data Platform Engineer">Data Platform Engineer</option>
+                    <option value="Database Administrator II">Database Administrator II</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="work-model">Work Arrangement</label>
+                  <select id="work-model">
+                    <option value="Remote (US-Wide)">Remote (US-Wide)</option>
+                    <option value="Hybrid (California)">Hybrid (California)</option>
+                    <option value="Relocation / On-Site">Relocation / On-Site</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="recruiter-msg">Position Scope or Meeting Availability</label>
+                <textarea id="recruiter-msg" rows="3" placeholder="Dylan, we'd like to schedule an introductory conversation regarding our Azure / Fabric pipeline engineering opening..."></textarea>
+              </div>
+
+              <button class="btn-primary full-width" type="submit">
+                <span class="material-symbols-outlined icon-sm">outgoing_mail</span>
+                <span>Transmit Interview Inquiry</span>
+              </button>
+            </form>
+
+            <div class="form-footnote">
+              <span class="material-symbols-outlined text-accent-teal icon-sm">verified_user</span>
+              <span>All production metrics verified against live enterprise workloads; proprietary schema names sanitized for GitHub Pages.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="content-container">
+      <div class="footer-grid">
+        <div class="footer-col-main">
+          <div class="footer-brand">
+            <span class="brand-name">Dylan Ferreira</span>
+            <span class="code-tag">AZ-900 &amp; DP-900 Certified</span>
+          </div>
+          <p>
+            Enterprise Data Engineering &amp; Data Platform Architecture. Specializing in Microsoft Fabric, Azure Data Factory, Delta Lake Medallion architectures, and PySpark pipeline optimization at scale.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-heading">Telemetry &amp; Code</span>
+          <div class="footer-links">
+            <a href="https://github.com/Similur" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined icon-sm">deployed_code</span> github.com/Similur
+            </a>
+            <a href="https://www.linkedin.com/in/dylanferreirais/" target="_blank" rel="noopener noreferrer">
+              <span class="material-symbols-outlined icon-sm">link</span> linkedin.com/in/dylanferreirais
+            </a>
+            <span class="footer-status text-accent-teal">
+              <span class="material-symbols-outlined icon-sm">verified</span> Pipelines: 100% Operational
+            </span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="footer-heading">Direct Channel</span>
+          <p>Considering mid-level Data Engineering, Fabric/Azure migrations, and Data Platform positions.</p>
+          <a class="btn-secondary" href="mailto:ferreira.dylan98@gmail.com">
+            <span class="material-symbols-outlined icon-sm text-accent-blue">mail</span>
+            <span>Email Dylan</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© <span id="year">2026</span> Dylan Ferreira. Enterprise Data Portfolio. • Sanitized Production Environment (GitHub Pages)</div>
+        <div class="code-font text-accent-teal">LOC: Hanford, CA • Open to Remote &amp; Relocation</div>
+      </div>
     </div>
-  </div>
-</dialog>
+  </footer>
+
+  <!-- Script is matched exactly to script.js -->
+  <script src="script.js"></script>
+</body>
+</html>
+
