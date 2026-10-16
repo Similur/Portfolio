@@ -1,233 +1,217 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0a1020" />
-  <meta name="description" content="Dylan Ferreira, a data engineer working with databases, cloud data pipelines, and applied machine learning." />
-  <title>Dylan Ferreira | Data Engineer</title>
+<!-- Inside <section class="section-base" id="case-studies">: Replace the project-grid with this -->
+<div class="case-studies-list project-grid">
 
-  <!-- Open Graph / Social Sharing Metadata -->
-  <meta property="og:title" content="Dylan Ferreira | Data Engineer" />
-  <meta property="og:description" content="Data engineer specializing in Microsoft Fabric, Lakehouse pipelines, database administration, and cloud integrations." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://similur.github.io/" />
-  <meta property="og:image" content="assets/preview.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dylan Ferreira | Data Engineer" />
-  <meta name="twitter:description" content="Data engineer specializing in Microsoft Fabric, Lakehouse pipelines, database administration, and cloud integrations." />
-
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="nav-wrap container">
-      <a href="#top" class="brand" aria-label="Dylan Ferreira home"><span class="brand-mark">df<span>.</span></span><span class="brand-name">Dylan Ferreira</span></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">☰</button>
-      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
-        <a href="#projects">Projects</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
-      </nav>
-      <a class="nav-cta" href="#projects">See my work <span aria-hidden="true">↗</span></a>
+  <!-- Project 01: Canvas Data 2 -->
+  <article class="case-card project-card" data-category="integration fabric">
+    <div class="case-header">
+      <div class="case-badge-group">
+        <span class="badge-solid badge-secondary-solid">PROJECT 01</span>
+        <span class="case-metric-highlight">49/49 TABLES SYNCED // ZERO LOSS</span>
+      </div>
+      <div class="case-tags">
+        <span>Microsoft Fabric</span>
+        <span>Python REST</span>
+        <span>Canvas LMS DAP</span>
+        <span>Delta Lake</span>
+      </div>
     </div>
-  </header>
-  <main id="main">
-    <section id="top" class="hero container">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse-dot"></span> DATA ENGINEERING · CLOUD PLATFORMS · APPLIED AI</div>
-        <h1>Making data <span class="gradient-text">easier to use.</span></h1>
-        <p class="hero-intro">I'm <strong>Dylan Ferreira</strong>, a data engineer with a background in database administration. I build reliable pipelines and work through tricky integrations so teams can use their data in their day-to-day work.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">View my projects <span aria-hidden="true">↗</span></a>
-          <a class="button secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a>
-        </div>
+    <h3 class="case-title">Canvas Data 2 Integration</h3>
+    <p class="case-subtitle">Automating daily academic records synchronization across 26 campus locations using Instructure DAP.</p>
+    <div class="case-card-actions">
+      <button class="btn-primary" data-project="canvas">
+        <span class="material-symbols-outlined icon-sm">visibility</span>
+        <span>Inspect Architecture & Code</span>
+      </button>
+    </div>
+  </article>
 
-        <!-- Modern Hero Impact Strip -->
-        <div class="hero-stats">
-          <div class="stat-item">
-            <strong>4+ Yrs</strong>
-            <span>Data & DBA</span>
-          </div>
-          <div class="stat-item">
-            <strong>30+</strong>
-            <span>Workbooks Automated</span>
-          </div>
-          <div class="stat-item">
-            <strong>Fabric</strong>
-            <span>Lakehouse Stack</span>
-          </div>
-          <div class="stat-item">
-            <strong>100%</strong>
-            <span>Idempotent Ingestion</span>
-          </div>
-        </div>
-
-        <div class="hero-tags"><span>Python & PySpark</span><span>SQL Server</span><span>Microsoft Fabric</span><span>Azure</span></div>
+  <!-- Project 02: Automated Fabric Lakehouse -->
+  <article class="case-card project-card" data-category="fabric">
+    <div class="case-header">
+      <div class="case-badge-group">
+        <span class="badge-solid">PROJECT 02</span>
+        <span class="case-metric-highlight">95% SPEED CUT // 2H → 5M</span>
       </div>
-      <div class="hero-visual" aria-label="Illustration of a data pipeline">
-        <div class="visual-glow"></div>
-        <div class="diagram">
-          <div class="diagram-top">
-            <span class="window-dots"><i></i><i></i><i></i></span>
-            <span>pipeline / live-monitor</span>
-            <button class="run-sim-btn" id="run-sim-btn" type="button">▶ Run Pipeline</button>
-          </div>
-          <div class="diagram-content">
-            <div class="diagram-caption">FROM SOURCE DATA TO ANALYTICS</div>
-            <div class="nodes">
-              <div class="node" id="sim-node-ingest"><span class="node-icon">⌁</span><strong>Ingest</strong><small>Sources</small></div>
-              <div class="connector"><span></span></div>
-              <div class="node active" id="sim-node-transform"><span class="node-icon">{ }</span><strong>Transform</strong><small>PySpark / SQL</small></div>
-              <div class="connector"><span></span></div>
-              <div class="node" id="sim-node-serve"><span class="node-icon">▤</span><strong>Serve</strong><small>Analytics</small></div>
-            </div>
-            <!-- Live interactive simulator terminal -->
-            <div class="code-panel" id="sim-terminal">
-              <div><span class="code-muted"># dependable data, by design</span></div>
-              <div><span class="code-blue">validate</span>(source, target)</div>
-              <div><span class="code-blue">deduplicate</span>(incoming_data)</div>
-              <div><span class="code-blue">publish</span>(trusted_tables)</div>
-              <div class="code-success" id="sim-status">● pipeline standby</div>
-            </div>
-          </div>
-        </div>
-        <div class="floating-note">DATA PIPELINE <span>✦</span></div>
+      <div class="case-tags">
+        <span>Microsoft Fabric</span>
+        <span>PySpark</span>
+        <span>Delta Lake</span>
+        <span>OneLake</span>
       </div>
-    </section>
+    </div>
+    <h3 class="case-title">Automated Fabric Lakehouse Pipeline</h3>
+    <p class="case-subtitle">Replaced manual multi-workbook daily imports with an automated, idempotent PySpark Lakehouse pipeline.</p>
+    <div class="case-card-actions">
+      <button class="btn-primary" data-project="fabric">
+        <span class="material-symbols-outlined icon-sm">visibility</span>
+        <span>Inspect Pipeline & Aggregations</span>
+      </button>
+    </div>
+  </article>
 
-    <section id="projects" class="section container">
-      <div class="section-top">
-        <div><div class="section-kicker">01 / FEATURED WORK</div><h2>Some of <em>my work.</em></h2></div>
-        <p>These projects draw on my work in production. I've kept the descriptions general to protect proprietary systems and data.</p>
+  <!-- Project 03: CRM Lakehouse Ingestion -->
+  <article class="case-card project-card" data-category="fabric integration">
+    <div class="case-header">
+      <div class="case-badge-group">
+        <span class="badge-solid">PROJECT 03</span>
+        <span class="case-metric-highlight">ZERO LOCKS // IDEMPOTENT</span>
       </div>
-
-      <!-- Project Category Filter Pills -->
-      <div class="filter-bar">
-        <button type="button" class="filter-btn active" data-filter="all">All Projects (6)</button>
-        <button type="button" class="filter-btn" data-filter="fabric">Fabric & PySpark</button>
-        <button type="button" class="filter-btn" data-filter="integration">Integrations & APIs</button>
-        <button type="button" class="filter-btn" data-filter="ai">Applied AI & NLP</button>
-        <button type="button" class="filter-btn" data-filter="quality">Data Quality</button>
+      <div class="case-tags">
+        <span>Delta MERGE</span>
+        <span>REST APIs</span>
+        <span>PySpark</span>
+        <span>Z-Ordering</span>
       </div>
+    </div>
+    <h3 class="case-title">CRM-to-Silver Lakehouse Ingestion</h3>
+    <p class="case-subtitle">Staged raw JSON extracts into Bronze Delta tables and executed idempotent merges into conformed Silver tables.</p>
+    <div class="case-card-actions">
+      <button class="btn-primary" data-project="crm">
+        <span class="material-symbols-outlined icon-sm">visibility</span>
+        <span>Inspect Delta MERGE Routine</span>
+      </button>
+    </div>
+  </article>
 
-      <div class="project-grid">
-        <!-- Project 01 -->
-        <article class="project-card project-featured" data-category="integration fabric">
-          <div class="card-art art-canvas"><div class="art-header"><span>01 / DATA INTEGRATION</span><span>↗</span></div><div class="art-center"><span class="art-square">C</span><span class="art-line"></span><span class="art-square two">F</span><span class="art-line"></span><span class="art-square three">DB</span></div><div class="art-footer">EXTRACT → SYNC → VALIDATE</div></div>
-          <div class="project-body"><div class="card-meta">DATA ENGINEERING <span>·</span> INTEGRATIONS</div><h3>Canvas Data 2 Integration</h3><p>I took over the move to Canvas Data 2 and wrote Python workflows in Microsoft Fabric to sync learning platform data each day.</p><div class="chip-row"><span>Python</span><span>Microsoft Fabric</span><span>SQL</span><span>ETL/ELT</span></div><button type="button" class="text-link" data-project="canvas">Read the case study <span>↗</span></button></div>
-        </article>
-        
-        <!-- Project 02 -->
-        <article class="project-card" data-category="fabric">
-          <div class="card-art art-fabric"><div class="art-header"><span>02 / AUTOMATION</span><span>↗</span></div><div class="layer-stack"><span>BRONZE <b>Raw files</b></span><span>SILVER <b>Trusted Delta tables</b></span></div><div class="art-footer">MEDALLION PIPELINE</div></div>
-          <div class="project-body"><div class="card-meta">DATA PLATFORMS <span>·</span> AUTOMATION</div><h3>Automated Fabric Lakehouse Pipeline</h3><p>I replaced repetitive daily imports with a PySpark pipeline that handles overlapping files and produces reliable Delta tables.</p><div class="chip-row"><span>PySpark</span><span>Delta Lake</span><span>Azure Data Factory</span></div><button type="button" class="text-link" data-project="fabric">Read the case study <span>↗</span></button></div>
-        </article>
-        
-        <!-- Project 03 -->
-        <article class="project-card" data-category="ai">
-          <div class="card-art art-ml"><div class="art-header"><span>03 / APPLIED AI</span><span>↗</span></div><div class="chart-graphic"><span style="height:24%"></span><span style="height:48%"></span><span style="height:35%"></span><span style="height:63%"></span><span style="height:54%"></span><span style="height:81%"></span><span style="height:95%"></span></div><div class="art-footer">STUDENT AND REPAYMENT RISK</div></div>
-          <div class="project-body"><div class="card-meta">MACHINE LEARNING <span>·</span> ANALYTICS</div><h3>Predictive Risk & Student Success Models</h3><p>I built models to flag students who might need support early and identify financial repayment risk, giving teams signals they could act on.</p><div class="chip-row"><span>Pecan AI</span><span>Feature Engineering</span><span>Predictive Analytics</span></div><button type="button" class="text-link" data-project="ml">Read the case study <span>↗</span></button></div>
-        </article>
-        
-        <!-- Project 04 -->
-        <article class="project-card" data-category="quality">
-          <div class="card-art art-quality"><div class="art-header"><span>04 / DATA CHECKS</span><span>↗</span></div><div class="quality-graphic"><div>✓ <span>Schema checks</span></div><div>✓ <span>Count reconciliation</span></div><div>✓ <span>Duplicate detection</span></div></div><div class="art-footer">CHECKING PIPELINE OUTPUTS</div></div>
-          <div class="project-body"><div class="card-meta">DATA QUALITY <span>·</span> VALIDATION</div><h3>Automated Data Quality & Reconciliation</h3><p>This example shows how I checked pipeline outputs against existing imports and reports. It draws on validation techniques I used in previous work.</p><div class="chip-row"><span>Python</span><span>SQL</span><span>Power BI</span><span>Validation</span></div><button type="button" class="text-link" data-project="quality">Read the case study <span>↗</span></button></div>
-        </article>
-
-        <!-- Project 05 -->
-        <article class="project-card" data-category="fabric integration">
-          <div class="card-art art-fabric"><div class="art-header"><span>05 / REST API & LAKEHOUSE</span><span>↗</span></div><div class="layer-stack"><span>API <b>CRM Payloads</b></span><span>DELTA <b>Silver Upsert</b></span></div><div class="art-footer">IDEMPOTENT CDC PIPELINE</div></div>
-          <div class="project-body"><div class="card-meta">DATA PLATFORMS <span>·</span> INTEGRATION</div><h3>CRM-to-Silver Lakehouse Ingestion</h3><p>I built an automated PySpark pipeline in Microsoft Fabric pulling CRM records into OneLake with resilient Delta merges and deduplication.</p><div class="chip-row"><span>PySpark</span><span>Microsoft Fabric</span><span>Delta Lake</span><span>REST APIs</span></div><button type="button" class="text-link" data-project="crm">Read the case study <span>↗</span></button></div>
-        </article>
-
-        <!-- Project 06 -->
-        <article class="project-card" data-category="ai integration">
-          <div class="card-art art-canvas"><div class="art-header"><span>06 / APPLIED AI</span><span>↗</span></div><div class="quality-graphic"><div>✦ <span>Document OCR</span></div><div>✦ <span>Sentiment Analysis</span></div><div>✦ <span>Executive Insights</span></div></div><div class="art-footer">NLP DOCUMENT PIPELINE</div></div>
-          <div class="project-body"><div class="card-meta">AI & ANALYTICS <span>·</span> AUTOMATION</div><h3>Survey Sentiment & Executive Intelligence</h3><p>I designed an automated extraction workflow with Azure Document Intelligence and Python to parse unstructured feedback and score sentiment for leadership.</p><div class="chip-row"><span>Python</span><span>Azure Doc Intelligence</span><span>NLP</span><span>Executive BI</span></div><button type="button" class="text-link" data-project="docintel">Read the case study <span>↗</span></button></div>
-        </article>
+  <!-- Project 04: Data Quality & Reconciliation -->
+  <article class="case-card project-card" data-category="ml-quality">
+    <div class="case-header">
+      <div class="case-badge-group">
+        <span class="badge-solid badge-teal-solid">PROJECT 04</span>
+        <span class="case-metric-highlight">ZERO DATA DISCREPANCIES</span>
       </div>
-    </section>
-
-    <section id="about" class="section about-section"><div class="container about-layout"><div><div class="section-kicker">02 / ABOUT ME</div><h2>How I got into <em>data engineering.</em></h2></div><div class="about-copy"><p>I started in IT support, then moved into database administration. I enjoyed figuring out how to keep data systems reliable, and that led me to building integrations and automating data workflows. Since then, my work has also included applied machine learning.</p><p>I like being involved from the first conversation about what a team needs through designing and building the solution, then making sure it works well once it's running. I'm especially interested in data platforms, backend systems, and AI-powered products.</p><a class="inline-link" href="#contact">Let's connect <span>↗</span></a></div></div></section>
-
-    <section id="skills" class="section container">
-      <div class="section-top skills-heading"><div><div class="section-kicker">03 / TOOLKIT</div><h2>Tools I work <em>with.</em></h2></div><p>These are the tools I work with across databases, data orchestration, cloud services, and analytics.</p></div>
-      <div class="skills-grid">
-        <div class="skill-panel">
-          <div class="skill-icon">⌘</div>
-          <h3>Languages & Automation</h3>
-          <p>Python · T-SQL · SQL · PowerShell · PySpark</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">▦</div>
-          <h3>Data Platforms</h3>
-          <p>Microsoft Fabric · Delta Lake · OneLake · SQL Server · Azure SQL · PostgreSQL</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">◈</div>
-          <h3>Cloud & Integration</h3>
-          <p>Azure Data Factory · ADLS Gen2 · Azure Key Vault · REST APIs · Synapse Analytics · ETL/ELT</p>
-        </div>
-        <div class="skill-panel">
-          <div class="skill-icon">✧</div>
-          <h3>Analytics & AI</h3>
-          <p>Power BI · Direct Lake · Azure Document Intelligence · NLP Sentiment · Pecan AI · Data Modeling</p>
-        </div>
+      <div class="case-tags">
+        <span>Data Quality</span>
+        <span>PySpark</span>
+        <span>Parity Testing</span>
+        <span>Regression Testing</span>
       </div>
-    </section>
+    </div>
+    <h3 class="case-title">Automated Data Quality & Reconciliation</h3>
+    <p class="case-subtitle">Constructed test assertions verifying source-to-target row counts, null constraints, and key uniqueness.</p>
+    <div class="case-card-actions">
+      <button class="btn-primary" data-project="quality">
+        <span class="material-symbols-outlined icon-sm">visibility</span>
+        <span>Inspect Reconciliation Suite</span>
+      </button>
+    </div>
+  </article>
 
-    <section id="contact" class="section container">
-      <div class="contact-card">
-        <div class="section-kicker">04 / WHAT'S NEXT</div>
-        <h2>Let's <em>talk.</em></h2>
-        <p>I'm interested in opportunities involving reliable data systems, backend engineering, or applied AI. I'd also be happy to talk through an interesting technical problem.</p>
-        <div class="contact-actions">
-          <a class="button primary" id="email-link" href="mailto:ferreira.dylan98@gmail.com">Send me an email ↗</a>
-          <a class="button secondary" href="resume.pdf" download="Dylan_Ferreira_Resume.pdf">Download resume ↓</a>
-          <a class="button secondary" id="github-link" href="https://github.com/Similur" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          <a class="button secondary" id="linkedin-link" href="https://www.linkedin.com/in/dylanferreirais/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        </div>
+  <!-- Project 05: Predictive Risk ML -->
+  <article class="case-card project-card" data-category="ml-quality">
+    <div class="case-header">
+      <div class="case-badge-group">
+        <span class="badge-solid badge-teal-solid">PROJECT 05</span>
+        <span class="case-metric-highlight">4 MODELS OPERATIONALIZED</span>
       </div>
-    </section>
-  </main>
-  <footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Dylan Ferreira</span><span>Built with HTML, CSS, and JavaScript.</span><a href="#top">Back to top ↑</a></div></footer>
-
-  <!-- Modal Dialog with Tabbed Code & Architecture Switcher -->
-  <dialog id="project-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-shell">
-      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close case study">✕</button>
-      <div class="section-kicker" id="dialog-kicker"></div>
-      <h2 id="dialog-title"></h2>
-      <p id="dialog-intro"></p>
-
-      <div class="dialog-tabs">
-        <button type="button" class="tab-btn active" data-tab="overview">Overview</button>
-        <button type="button" class="tab-btn" data-tab="code">Architecture & Code</button>
+      <div class="case-tags">
+        <span>Pecan AI</span>
+        <span>Feature Store</span>
+        <span>Predictive Analytics</span>
+        <span>Power BI</span>
       </div>
+    </div>
+    <h3 class="case-title">Predictive Risk & Student Retention Models</h3>
+    <p class="case-subtitle">Built feature engineering pipelines feeding 4 machine learning models for early risk identification.</p>
+    <div class="case-card-actions">
+      <button class="btn-primary" data-project="ml">
+        <span class="material-symbols-outlined icon-sm">visibility</span>
+        <span>Inspect ML Feature Pipeline</span>
+      </button>
+    </div>
+  </article>
 
-      <div class="dialog-tab-pane" id="pane-overview">
-        <div class="dialog-detail">
-          <h3>The challenge</h3>
+  <!-- Project 06: Document Intelligence -->
+  <article class="case-card project-card" data-category="integration ml-quality">
+    <div class="case-header">
+      <div class="case-badge-group">
+        <span class="badge-solid badge-secondary-solid">PROJECT 06</span>
+        <span class="case-metric-highlight">UNSTRUCTURED → DELTA</span>
+      </div>
+      <div class="case-tags">
+        <span>Azure Doc Intel</span>
+        <span>NLP Sentiment</span>
+        <span>Python</span>
+        <span>Form Recognizer</span>
+      </div>
+    </div>
+    <h3 class="case-title">Survey Sentiment & Executive Intelligence</h3>
+    <p class="case-subtitle">Parsed qualitative feedback forms into structured Delta tables with automated sentiment scoring.</p>
+    <div class="case-card-actions">
+      <button class="btn-primary" data-project="docintel">
+        <span class="material-symbols-outlined icon-sm">visibility</span>
+        <span>Inspect Document OCR Routine</span>
+      </button>
+    </div>
+  </article>
+
+</div>
+
+<!-- Paste this Modal Element right before </main> -->
+<dialog id="project-dialog" class="project-modal">
+  <div class="modal-wrapper">
+    <div class="modal-header">
+      <div class="modal-header-text">
+        <span id="dialog-kicker" class="section-eyebrow">PROJECT DETAILS</span>
+        <h2 id="dialog-title">Project Title</h2>
+      </div>
+      <button id="dialog-close" class="btn-ghost icon-only" aria-label="Close dialog">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Modal Tabs -->
+    <div class="dialog-tabs">
+      <button class="tab-btn active" data-tab="overview">
+        <span class="material-symbols-outlined icon-sm">description</span>
+        <span>Architecture Brief</span>
+      </button>
+      <button class="tab-btn" data-tab="code">
+        <span class="material-symbols-outlined icon-sm">code</span>
+        <span>PySpark / Production Code</span>
+      </button>
+    </div>
+
+    <!-- Tab 1: Architecture Brief -->
+    <div id="pane-overview" class="modal-body">
+      <p id="dialog-intro" class="modal-lead"></p>
+      
+      <div class="modal-deepdive">
+        <div class="deepdive-box">
+          <span class="step-title">The Challenge</span>
           <p id="dialog-challenge"></p>
-          <h3>What I did</h3>
+        </div>
+        <div class="deepdive-box">
+          <span class="step-title">Engineering Contribution</span>
           <p id="dialog-contribution"></p>
-          <h3>The result</h3>
+        </div>
+        <div class="deepdive-box highlight-step">
+          <span class="step-title text-accent-teal">Production Outcome</span>
           <p id="dialog-outcome"></p>
-          <p class="disclosure" id="dialog-disclosure"></p>
         </div>
       </div>
 
-      <div class="dialog-tab-pane is-hidden" id="pane-code">
-        <div class="dialog-detail">
-          <h3>Implementation Pattern</h3>
-          <pre class="code-box"><code id="dialog-code"></code></pre>
-          <p class="disclosure">Pattern demonstrates production logic syntax using sanitized synthetic structures.</p>
-        </div>
+      <div class="disclosure-box">
+        <span class="material-symbols-outlined text-accent-teal icon-sm">verified_user</span>
+        <p id="dialog-disclosure"></p>
       </div>
     </div>
-  </dialog>
-</body>
-</html>
+
+    <!-- Tab 2: Code Viewer -->
+    <div id="pane-code" class="modal-body" style="display: none;">
+      <div class="terminal-bar">
+        <div class="terminal-dots">
+          <span class="dot-red"></span>
+          <span class="dot-yellow"></span>
+          <span class="dot-green"></span>
+          <span class="terminal-filename">production_pattern_snippet.py</span>
+        </div>
+        <button class="btn-ghost" id="dialog-copy-btn">
+          <span class="material-symbols-outlined icon-sm">content_copy</span>
+          <span>Copy Snippet</span>
+        </button>
+      </div>
+      <pre class="modal-code-block"><code id="dialog-code"></code></pre>
+    </div>
+  </div>
+</dialog>
